@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171017184715) do
   end
 
   create_table "goers", force: :cascade do |t|
-    t.string "username"
+    t.string "email"
     t.string "password_digest"
     t.string "personality"
     t.string "reason"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171017184715) do
   end
 
   create_table "planners", force: :cascade do |t|
-    t.string "username"
+    t.string "email"
     t.string "password_digest"
     t.string "personality"
     t.string "reason"
