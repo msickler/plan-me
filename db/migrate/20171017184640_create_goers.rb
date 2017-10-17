@@ -1,0 +1,8 @@
+class CreateGoers < ActiveRecord::Migration[5.1]
+  def change
+    create_table :goers do |t|
+
+      t.timestamps
+    end
+  end
+end
