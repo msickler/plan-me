@@ -17,35 +17,23 @@
     <meta name="author" content="">
 
   </head>
+  <body class="landing">
 
-
-
-  <!-- Header -->
-
-  <header id="header">
-  				<h1><strong><a href="index.html">Plan.Me</a></strong></h1>
-  				<nav id="nav">
-  					<ul>
-  						<li><a href="/">Home</a></li>
-  						<li><a href="generic.html">Profile</a></li>
-  						<li><a href="elements.html">Logout</a></li>
-  					</ul>
-  				</nav>
-  			</header>
-
-
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
-
-    <section id="main" class="wrapper">
+  <% if current_page?(root_path) %>
+      <%= render 'home/header' %>
+  <% else %>
+      <%= render 'layouts/header' %>
+  <% end %>
+    <!-- <section id="main" class="wrapper">
     	<div class="container">
+      -->
 
     <%= yield %>
 
 
-    		</div>
+    		<!-- </div>
     	</section>
+    -->
 
     <!-- Footer -->
     <footer id="footer">
