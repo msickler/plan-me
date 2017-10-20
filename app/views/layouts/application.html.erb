@@ -37,7 +37,15 @@
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
+
+    <section id="main" class="wrapper">
+    	<div class="container">
+
     <%= yield %>
+
+
+    		</div>
+    	</section>
 
     <!-- Footer -->
     <footer id="footer">
