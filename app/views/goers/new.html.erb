@@ -1,3 +1,8 @@
+<h1> Be a Goer </h1>
+<h4> You like to do, you like to try, to go, to explore, to be the lead of your movie. <br>
+Our job is to find you the right director for it.</h4>
+<h3> Register below </h3>
+
 <%= form_for @goer do |f| %>
 
 <%= f.label :email %><br>
@@ -15,11 +20,14 @@
 <%= f.label :budget, "What is your budget?" %><br>
 <%= f.select :budget, [['$1,000'], ['$5,000'], ['$7,000'], ['$10,000']] %><br>
 
-<%= f.label :companion, "How many companions are you bringing?" %><br>
+<%= f.label :companion, "How many people are you bringing?" %><br>
 <%= f.text_field :companion %><br>
 
-<%= f.label :check_if_international %>
+<%= f.label :check_if_international, "Are you willing to travel outside of the U.S.?" %><br>
 <%= f.check_box :international %><br>
 
 <%= f.submit "Make me a Goer" %><br>
 <% end %>
+
+<p> Or go back and be a
+<%= link_to("Planner", new_planner_path) %></p>
