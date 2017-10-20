@@ -12,7 +12,7 @@ class GoerSessionsController < ApplicationController
       redirect_to goer_path(@goer)
     else
       flash[:notice] = "Something went wrong. Please try again."
-      redirect_to "/login"
+      redirect_to new_goer_path
     end
   end
 
