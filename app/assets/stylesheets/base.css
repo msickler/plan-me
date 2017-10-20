@@ -2735,7 +2735,7 @@
 
 		.wrapper.style3 {
 			background-attachment: fixed;
-			background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+			background-image: url("https://i.imgur.com/4AryOW7.png"), url("https://images.unsplash.com/photo-1474905187624-b3deaf7aa4c2?w=750");
 			background-position: center center;
 			background-size: cover;
 		}
