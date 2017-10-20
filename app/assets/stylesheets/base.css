@@ -1,0 +1,42 @@
+/* Header
+   ========================================================================== */
+.site-header {
+	text-align: center;
+}
+.site-header .container {
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+.site-title {
+	margin: 0;
+	font-size: 72px;
+	font-family: Josefin Sans, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	line-height: 1;
+	color: #000;
+	font-weight: 300 !important;
+}
+.site-title img {
+	margin: 0 auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.site-title a {
+	color: #000;
+}
+.site-title a:hover,
+.site-title a:focus {
+	text-decoration: none;
+}
+.site-description {
+	color: #222;
+	font-size: 15px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 1.5;
+	margin: 10px auto 0;
+	max-width: 75%;
+	text-align: center;
+}
