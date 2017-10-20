@@ -1,3 +1,8 @@
+<h1> Be a Planner </h1>
+<h4> Some people just have it in them, they know what people want,
+  they know how to make them happy, they know what's up<br> and we all know they're well organized.</h4>
+<h3> Register below </h3>
+
 <%= form_for @planner do |f| %>
 <%= f.label :email %><br>
 <%= f.text_field :email %><br>
@@ -5,14 +10,17 @@
 <%= f.label :password %><br>
 <%= f.password_field :password %><br>
 
-<%= f.label :personality %><br>
+<%= f.label :personality, "What personality do you understand?" %><br>
 <%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %><br>
 
-<%= f.label :reason %><br>
+<%= f.label :reason, "What travel reasons do you most understand?" %><br>
 <%= f.select :reason, [['Honeymoon'], ['Family Trip'], ['Cleansing Time'], ['For Fun'], ['For Tourism']] %><br>
 
-<%= f.label :check_if_international %>
+<%= f.label :check_if_international, "Are you an international planner?" %><br>
 <%= f.check_box :international %><br>
 
-<%= f.submit "Register as a Planner" %><br>
+<%= f.submit "Register" %><br>
 <% end %>
+
+<p> Or go back and be a
+<%= link_to("Goer", new_goer_path) %></p>
