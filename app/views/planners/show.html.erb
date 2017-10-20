@@ -1,1 +1,13 @@
-<h2> User: <%= @planner.email %></h2>
+<h2> Welcome, <%= @planner.email %></h2>
+<h3> Planner Specs</h3>
+<h4> Type: </h4>
+<%= @planner.personality %>
+<h4> Motif: </h4>
+<%= @planner.reason %>
+<h4> Scope: </h4>
+<% if @planner.international == true %>
+<p>Global </p>
+<% else %>
+<p> The US </p>
+<% end %>
+<%= link_to("Edit Specs", edit_planner_path(@planner)) %>
