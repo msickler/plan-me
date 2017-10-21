@@ -1,0 +1,30 @@
+<%= form_for @goer do |f| %>
+
+<%= f.label :email %><br>
+<%= f.text_field :email %><br>
+
+<%= f.label :password %><br>
+<%= f.password_field :password %><br>
+
+<%= f.label :personality, "What is your travel personality?" %><br>
+<%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %><br>
+
+<%= f.label :reason, "What is the reason for this trip?" %><br>
+<%= f.select :reason, [['Honeymoon'], ['Family Trip'], ['Cleansing Time'], ['For Fun'], ['For Tourism']] %><br>
+
+<%= f.label :budget, "What is your budget?" %><br>
+<%= f.select :budget, [['$1,000'], ['$5,000'], ['$7,000'], ['$10,000']] %><br>
+
+<%= f.label :companion, "How many people are you bringing?" %><br>
+<%= f.text_field :companion %><br>
+
+<br>
+<input type="checkbox" id="international" name="international">
+	<label for="international">Are you willing to travel outside of the U.S.?</label>
+  <br>
+<ul class="actions">
+<li><%= f.submit "Make me a Goer" %></li>
+<li><%= link_to("Nvm, I'm a Planner", new_planner_path, class: "button alt") %></li>
+</ul>
+
+<% end %>

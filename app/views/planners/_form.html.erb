@@ -1,18 +1,30 @@
+<div class="row uniform 50%">
+  <div class="6u 12u$(xsmall)">
+
 <%= form_for @planner do |f| %>
-<%= f.label :email %><br>
-<%= f.text_field :email %><br>
 
-<%= f.label :password %><br>
-<%= f.password_field :password %><br>
 
-<%= f.label :personality, "What personality do you understand?" %><br>
-<%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %><br>
+<%= f.label :email %>
+<%= f.text_field :email, placeholder: "Email" %>
 
-<%= f.label :reason, "What travel reasons do you most understand?" %><br>
-<%= f.select :reason, [['Honeymoon'], ['Family Trip'], ['Cleansing Time'], ['For Fun'], ['For Tourism']] %><br>
+<%= f.label :password %>
+<%= f.password_field :password, placeholder: "A good one" %>
 
-<%= f.label :check_if_international, "Are you an international planner?" %><br>
-<%= f.check_box :international %><br>
 
-<%= f.submit "Make me a Planner" %><br>
+<%= f.label :personality, "What personality do you understand?" %>
+<%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %>
+
+<%= f.label :reason, "What travel reasons do you most understand?" %>
+<%= f.select :reason, [['Honeymoon'], ['Family Trip'], ['Cleansing Time'], ['For Fun'], ['For Tourism']] %>
+<br>
+<input type="checkbox" id="international" name="international">
+	<label for="international">Are you an international planner?</label>
+  <br>
+
+</div>
+</div>
+<ul class="actions">
+<li><%= f.submit "Make me a Planner" %></li>
+<li><%= link_to("Nvm, I'm a Goer", new_goer_path, class: "button alt") %></li>
+</ul>
 <% end %>
