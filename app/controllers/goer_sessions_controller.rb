@@ -4,6 +4,10 @@ class GoerSessionsController < ApplicationController
     @goer = Goer.new
   end
 
+  def login
+    render :'goers/login'
+  end
+
   def create
     @goer = Goer.find_by(email: params[:goer][:email])
     if @goer && @goer.authenticate(params[:goer][:password])

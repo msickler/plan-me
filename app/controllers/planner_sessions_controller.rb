@@ -4,6 +4,8 @@ class PlannerSessionsController < ApplicationController
     @planner = Planner.new
   end
 
+
+
   def create
     @planner = Planer.find_by(email: params[:planner][:email])
     if @planner && @planner.authenticate(params[:planner][:password])
