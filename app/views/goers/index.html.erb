@@ -18,7 +18,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><%= goer.name %></td>
+							<td><%= link_to goer.name, goer_path(goer) %></td>
 							<td><%= goer.personality%></td>
 							<td><%= goer.reason %></td>
 							<td><%= goer.budget %></td>

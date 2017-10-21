@@ -28,8 +28,11 @@ class GoersController < ApplicationController
 
   def update
 		@goer = Goer.find(params[:id])
-		@goer.update(goer_params)
-		redirect_to goer_path(@goer)
+		if @goer.update(goer_params)
+      redirect_to goer_path(@goer)
+    else
+      redirect_to edit_goer_path(@goer)
+    end
 	end
 
   private
