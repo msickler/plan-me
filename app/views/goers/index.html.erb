@@ -1,35 +1,33 @@
 <section id="main" class="wrapper">
-				<div class="container">
-          <br><br>
-
-<!-- Table -->
-<section>
-  <% @goers.each do |goer| %>
-							<h4>Our Goers</h4>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Type</th>
-											<th>Motif</th>
-                      <th>Scope</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											 <td><%= link_to goer.name, goer_path(goer) %></td>
-											<td><%= goer.personality%></td>
-											<td><%= goer.reason %></td>
-                      <td><%= goer.international %></td>
-										</tr>
-									</tbody>
-
-								</table>
-							</div>
-						</section>
-
-<% end %>
-
-</div>
+	<div class="container">
+  <br><br>
+	<!-- Table -->
+		<section>
+  	<% @goers.each do |goer| %>
+			<h4>Our Goers</h4>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Motif</th>
+							<th>Budget</th>
+              <th>Scope</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= goer.name %></td>
+							<td><%= goer.personality%></td>
+							<td><%= goer.reason %></td>
+							<td><%= goer.budget %></td>
+              <td><%= goer.international %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<% end %>
+	</div>
 </section>
