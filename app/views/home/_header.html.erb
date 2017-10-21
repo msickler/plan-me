@@ -2,7 +2,12 @@
       <h1><strong><a href="index.html">Plan.Me</a></strong></h1>
       <nav id="nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li> <% if logged_in? %>
+            <a href="/planners">Home</a>
+            <% else %>
+            <a href="/">Home</a>
+            <% end %>
+          </li>
           <li><a href="#one">About</a></li>
           <li><a href="elements.html">Login</a></li>
           <li><a href="#two">Register</a></li>

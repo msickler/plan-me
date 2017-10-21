@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/contact'
+  get 'home/main'
   delete 'logout' => 'sessions#destroy'
   resources :goers
   resources :planners
