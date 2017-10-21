@@ -1,5 +1,9 @@
 class PlannersController < ApplicationController
 
+  def index
+    @planners = Planner.all
+  end
+
   def new
     @planner = Planner.new
   end
@@ -24,13 +28,14 @@ class PlannersController < ApplicationController
 
   def update
 		@planner = Planner.find(params[:id])
-		@planner.update(email: params[:email], personality: params[:personality], reason: params[:reason], international: params[:international])
+  	@planner.update(planner_params)
 		redirect_to planner_path(@planner)
 	end
 
   private
+
     def planner_params
-      params.require(:planner).permit(:id, :email, :password, :personality, :reason, :international)
+      params.require(:planner).permit(:id, :name, :email, :password, :personality, :reason, :international)
     end
 
 end

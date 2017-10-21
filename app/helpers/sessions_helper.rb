@@ -1,6 +1,5 @@
 module SessionsHelper
 
-
   def logged_in?
     !!current_goer || !!current_planner
   end

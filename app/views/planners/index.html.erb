@@ -3,7 +3,7 @@
   <br><br>
 	<!-- Table -->
 	<section>
-  	<%= @planners.each do |planner| %>
+  	<% @planners.each do |planner| %>
 		<h4>Our Planners</h4>
 		<div class="table-wrapper">
 			<table>
@@ -17,10 +17,13 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= planner.name %></td>
+						<td><%= link_to planner.name, planner_path(planner) %></td>
 						<td><%= planner.personality%></td>
 						<td><%= planner.reason %></td>
-            <td><%= planner.international %></td>
+            <td><% if planner.international = true %>
+							 Global	<% else %> U S
+							<% end %>
+						</td>
 					</tr>
 				</tbody>
 			</table>
