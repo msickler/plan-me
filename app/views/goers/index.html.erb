@@ -4,8 +4,8 @@
 
 <!-- Table -->
 <section>
-  <% @planners.each do |planner| %>
-							<h4>Our Planners</h4>
+  <% @goers.each do |goer| %>
+							<h4>Our Goers</h4>
 							<div class="table-wrapper">
 								<table>
 									<thead>
@@ -18,10 +18,10 @@
 									</thead>
 									<tbody>
 										<tr>
-											 <td><%= link_to planner.name, planner_path(planner) %></td>
-											<td><%= planner.personality%></td>
-											<td><%= planner.reason %></td>
-                      <td><%= planner.international %></td>
+											 <td><%= link_to goer.name, goer_path(goer) %></td>
+											<td><%= goer.personality%></td>
+											<td><%= goer.reason %></td>
+                      <td><%= goer.international %></td>
 										</tr>
 									</tbody>
 

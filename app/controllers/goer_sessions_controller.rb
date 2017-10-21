@@ -1,7 +1,7 @@
 class GoerSessionsController < ApplicationController
 
   def new
-    @goer = Goer.new
+
   end
 
   def login
@@ -10,10 +10,11 @@ class GoerSessionsController < ApplicationController
 
   def create
     @goer = Goer.find_by(email: params[:goer][:email])
-    if @goer && @goer.authenticate(params[:goer][:password])
+    if @goer && @goer.authenticate(params[:session][:password])
       flash[:notice] = "#{@goer.email} successfully logged in."
       session[:goer_id] = @goer.id
       redirect_to goer_path(@goer)
+
     else
       flash[:notice] = "Something went wrong. Please try again."
       redirect_to new_goer_path
