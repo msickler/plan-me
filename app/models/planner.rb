@@ -1,6 +1,6 @@
 class Planner < ApplicationRecord
   has_many :drafts
-  has_many :trips, through: :drafts
+  has_many :trips
 
   has_secure_password
   validates :email, presence: true
