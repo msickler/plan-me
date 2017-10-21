@@ -18,6 +18,12 @@
 		vertical-align: baseline;
 	}
 
+	.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
