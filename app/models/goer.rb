@@ -1,6 +1,6 @@
 class Goer < ApplicationRecord
-  belongs_to :planner
   has_many :trips
+  has_many :drafts, through: :trips
 
   has_secure_password
   validates :email, presence: true

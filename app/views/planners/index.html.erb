@@ -1,0 +1,29 @@
+<% @planners.each do |planner| %>
+
+<!-- Table -->
+<section>
+							<h4>Our Planners</h4>
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Type</th>
+											<th>Motif</th>
+                      <th>Scope</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											 <td><%= planner.name %></td>
+											<td><%= planner.personality%></td>
+											<td><%= planner.reason %></td>
+                      <td><%= planner.international %></td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</section>
+
+<% end %>
