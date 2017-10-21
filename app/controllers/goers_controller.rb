@@ -1,5 +1,9 @@
 class GoersController < ApplicationController
 
+  def index
+    @goers = Goer.all
+  end
+
   def new
     @goer = Goer.new
   end
@@ -18,15 +22,19 @@ class GoersController < ApplicationController
     @goer = Goer.find_by(id: params[:id])
   end
 
+  def edit
+    @goer = Goer.find(params[:id])
+  end
+
   def update
 		@goer = Goer.find(params[:id])
-		@goer.update(email: params[:email], personality: params[:personality], reason: params[:reason], budget: params[:budget], companion: params[:companion], international: params[:international])
+		@goer.update(goer_params)
 		redirect_to goer_path(@goer)
 	end
 
   private
     def goer_params
-      params.require(:goer).permit(:id, :email, :password, :personality, :reason, :budget, :companion, :international)
+      params.require(:goer).permit(:id, :name, :email, :password, :personality, :reason, :budget, :companion, :international)
     end
 
   end
