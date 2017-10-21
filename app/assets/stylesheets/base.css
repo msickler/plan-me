@@ -3188,9 +3188,11 @@
 /* Footer */
 
 	#footer {
-		padding: 8em 0 6em 0;
-		background: #f6f6f6;
-		color: #aaa;
+		padding: 8em;
+		background-image:  url("https://i.imgur.com/4AryOW7.png"), url('https://c1.staticflickr.com/9/8386/8574028135_f9eed1f8a5_b.jpg');
+		color: #fafafa;
+		background-position: center bottom;
+		background-attachment: fixed;
 		text-align: center;
 	}
 
@@ -3199,12 +3201,12 @@
 			-webkit-transition: color 0.2s ease-in-out;
 			-ms-transition: color 0.2s ease-in-out;
 			transition: color 0.2s ease-in-out;
-			color: #aaa;
+			color: #fafafa;
 			text-decoration: none;
 		}
 
 			#footer a:active, #footer a:hover {
-				color: #666;
+				color: #7a90ef;
 			}
 
 		#footer .icons {
