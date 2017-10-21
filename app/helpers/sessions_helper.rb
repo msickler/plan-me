@@ -1,8 +1,8 @@
 module SessionsHelper
 
-  # Logs in the given user.
-  def log_in(goer)
-    session[:goer_id] = goer.id
+
+  def logged_in?
+    !!current_goer || !!current_planner
   end
 
   def current_goer

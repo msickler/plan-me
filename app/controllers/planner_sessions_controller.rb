@@ -16,7 +16,7 @@ class PlannerSessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :planner_id
+    session.delete(:planner_id)
     redirect_to '/'
   end
 
