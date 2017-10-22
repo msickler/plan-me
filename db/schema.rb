@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022131136) do
+ActiveRecord::Schema.define(version: 20171022141210) do
 
   create_table "drafts", force: :cascade do |t|
     t.integer "planner_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20171022131136) do
     t.boolean "international", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid"
   end
 
 end
