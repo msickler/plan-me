@@ -30,6 +30,7 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="6u 12u$(xsmall)">
 			<h4> Drafts </h4>
 			<% @planner.drafts.each do |draft| %>
 				<ul>
@@ -37,5 +38,15 @@
 				</ul>
 			<% end %>
 		</div>
+		<div class="6u 12u$(xsmall)">
+			<h4> Trips </h4>
+			<% @planner.trips.each do |trip| %>
+				<ul>
+					<li>trip.name</li>
+				</ul>
+			<% end %>
+		</div>
+	</div>
+
 	</div>
 </section>
