@@ -3,7 +3,7 @@
   	<br><br>
 		<div class="row">
   		<div class="6u 12u$(xsmall)">
-    		<h2> Welcome, <%= @planner.name %></h2>
+    		<h2> <%= @planner.name %></h2>
 				<h4> Planner Specs</h4>
 				<ul class="alt">
 					<li><strong> Type: </strong><%= @planner.personality %></li>
@@ -12,11 +12,16 @@
   					Global <% else %> The US
 						<% end %>
 					</li>
+					<li><strong> Contact: </strong><%= @planner.email %></li>
 				</ul>
-				<%= link_to("Work on a draft", edit_planner_path(@planner), class: 'button alt') %>
-				<%= link_to("Submit a trip", new_trip_path, class: 'button alt') %>
-				<br><br>
-				<%= link_to("Edit Profile", edit_planner_path(@planner)) %>
+				<% if current_planner.id == session[:planner_id] %>
+					<%= link_to("Work on a draft", edit_planner_path(@planner), class: 'button alt') %>
+					<%= link_to("Submit a trip", new_trip_path, class: 'button alt') %>
+					<br><br>
+					<%= link_to("Edit Profile", edit_planner_path(@planner)) %>
+				<% else %>
+					<%= link_to("Go Back", planners_path, class: 'button alt') %>
+				<% end %>
 			</div>
     	<div class="6u 12u$(xsmall)">
       	<div class="image fit">
