@@ -3,11 +3,10 @@ class Trip < ApplicationRecord
   belongs_to :planner
   has_many :trip_categories
   has_many :categories, through: :trip_categories
-  accepts_nested_attributes_for :categories
+  accepts_nested_attributes_for :categories, reject_if: :all_blank
 
   validates :name, length: { minimum: 5 }
   validates :content, length: { minimum: 600 }
-  validates :planner, presence: true
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|
