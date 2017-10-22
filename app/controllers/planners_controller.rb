@@ -1,4 +1,4 @@
-class PlannersController < ApplicationController
+class PlannersController < UsersController
 
   def index
     @planners = Planner.all

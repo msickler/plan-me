@@ -1,4 +1,4 @@
-class GoersController < ApplicationController
+class GoersController < UsersController
 
   def index
     @goers = Goer.all

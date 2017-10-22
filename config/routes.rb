@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   resources :goers
   resources :planners
   resources :trips
+  resources :users
+  resources :drafts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

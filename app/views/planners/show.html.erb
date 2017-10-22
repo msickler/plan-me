@@ -15,7 +15,7 @@
 					<li><strong> Contact: </strong><%= @planner.email %></li>
 				</ul>
 				<% if current_planner.id == session[:planner_id] %>
-					<%= link_to("Work on a draft", edit_planner_path(@planner), class: 'button alt') %>
+					<%= link_to("Work on a draft", new_draft_path, class: 'button alt') %>
 					<%= link_to("Submit a trip", new_trip_path, class: 'button alt') %>
 					<br><br>
 					<%= link_to("Edit Profile", edit_planner_path(@planner)) %>
@@ -28,6 +28,14 @@
         	<img src="https://images.unsplash.com/photo-1429728479567-9c51fb49813e?w=667" alt="">
     		</div>
 			</div>
+		</div>
+		<div class="row">
+			<h4> Drafts </h4>
+			<% @planner.drafts.each do |draft| %>
+				<ul>
+					<li>draft.name</li>
+				</ul>
+			<% end %>
 		</div>
 	</div>
 </section>
