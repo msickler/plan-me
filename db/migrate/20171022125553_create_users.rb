@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :password_digest
       t.string :personality
       t.string :reason
+      t.integer :budget
+      t.integer :companion
       t.boolean :international, :default => :false
       t.timestamps
     end
