@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :reason
       t.integer :budget
       t.integer :companion
-      t.boolean :international, :default => :false
+      t.boolean :international
       t.timestamps
     end
   end

@@ -1,6 +1,6 @@
 class Goer < User
   has_many :trips
-  has_many :drafts, through: :trips
+  has_many :categories, through: :trips
 
   validates :budget, :companion, presence: true
 

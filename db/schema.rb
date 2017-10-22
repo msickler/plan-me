@@ -10,20 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022125553) do
+ActiveRecord::Schema.define(version: 20171022203240) do
 
-  create_table "drafts", force: :cascade do |t|
-    t.integer "planner_id"
-    t.integer "trip_id"
+  create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "content"
   end
 
   create_table "trips", force: :cascade do |t|
     t.integer "goer_id"
     t.integer "planner_id"
+    t.integer "category_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +36,7 @@ ActiveRecord::Schema.define(version: 20171022125553) do
     t.string "reason"
     t.integer "budget"
     t.integer "companion"
-    t.boolean "international", default: false
+    t.boolean "international"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
