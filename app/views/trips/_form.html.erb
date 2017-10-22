@@ -1,0 +1,21 @@
+<div class="row uniform 50%">
+  <div class="6u 12u$(xsmall)">
+    <%= form_for @trip do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Name this trip" %>
+  </div>
+  <div class="6u$ 12u$(xsmall)">
+     <%= f.collection_select :goer_id, Goer.all, :id, :name_with_initial, prompt: true %>
+  </div>
+</div>
+<br>
+<div class="12u$">
+  <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10" %>
+</div>
+<br>
+<div class="12u$">
+  <ul class="actions">
+    <li><%=f.submit "Submit", class: "special" %></li>
+    <li><input type="reset" value="Reset"></li>
+  </ul>
+</div>

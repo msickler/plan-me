@@ -9,28 +9,6 @@
 <!-- Form -->
 <section>
 		<h3>Create a Trip</h3>
-			<form method="post" action="/trips">
-					<div class="row uniform 50%">
-							<div class="6u 12u$(xsmall)">
-								<input type="text" name="name" id="name" value="" placeholder="Name this trip">
-						</div>
-							<div class="6u$ 12u$(xsmall)">
-							<input type="text" name="goer_id" id="goer_id" value="" placeholder="Your Goer's ID">
-							</div>
+		<%= render partial: 'form', locals: {trip: @trip}  %>
 
-							</div>
-							<br>
-
-							<div class="12u$">
-							<textarea name="content" id="content" placeholder="All the trip specs" rows="10"></textarea>
-							</div>
-							<br>
-							<div class="12u$">
-								<ul class="actions">
-									<li><input type="submit" value="Submit" class="special"></li>
-									<li><input type="reset" value="Reset"></li>
-								</ul>
-							</div>
-						</div>
-					</form>
-			</section>
+</section>
