@@ -8,7 +8,8 @@
 		</header>
 		<% @trips.each do |trip| %>
 		<h4>Trip.<%= trip.name %></h4>
-		<p>Category: <%= link_to trip.category.name, category_path(trip.category) if trip.category %></p>
+		<p><em>Category:</em> <%= link_to trip.category.name, category_path(trip.category) if trip.category %></p>
+		<p><em>Creator:</em><%= link_to trip.planner.name, planner_path(trip.planner) %></p>
 		<% end %>
 
 	</div>

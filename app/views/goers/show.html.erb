@@ -4,13 +4,13 @@
 		<div class="row">
   		<div class="6u 12u$(xsmall)">
     		<h2> <%= @goer.name %></h2>
-				<h4> Your Specs</h4>
+				<h4>Goer Specs</h4>
 				<ul class="alt">
 					<li><strong> Type: </strong><%= @goer.personality %></li>
 					<li><strong> Motif: </strong><%= @goer.reason %></li>
           <li><strong> Budget: </strong><% @goer.budget %>
           <li><strong> Companion(s): </strong><% @goer.companion %>
-					<li><strong> Scope: </strong><% if @goer.international = true %>
+					<li><strong> Scope: </strong><% if @goer.international == true %>
   					Global <% else %> The US
 						<% end %>
 					</li>
@@ -18,19 +18,28 @@
 				</ul>
 				<% if current_goer.id == session[:goer_id] %>
 					<%= link_to("Find Planners", planners_path, class: 'button alt') %>
-					<%= link_to("Goer Trips", trips_path(@goer), class: 'button alt') %>
 					<br><br>
 					<%= link_to("Edit Profile", edit_goer_path(@goer)) %>
 				<% else %>
-					<%= link_to("Go Back", planners_path, class: 'button alt') %>
+					<%= link_to("Go Back", goers_path, class: 'button alt') %>
 				<% end %>
-
 			</div>
     	<div class="6u 12u$(xsmall)">
       	<div class="image fit">
         	<img src="https://images.unsplash.com/photo-1496950866446-3253e1470e8e?w=750" alt="">
     		</div>
 			</div>
+			<div class="row">
+				<div class="6u 12u$(xsmall)">
+	  		<h4> Trips </h4>
+				<ul>
+					<% @goer.trips.each do |trip| %>
+						<li><%= link_to trip.name, trip_path(trip)%> | <%= trip.category.name %> </li>
+					<% end %>
+				</ul>
+			</div>
 		</div>
+
 	</div>
+</div>
 </section>
