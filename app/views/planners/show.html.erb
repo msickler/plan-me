@@ -15,8 +15,7 @@
 					<li><strong> Contact: </strong><%= @planner.email %></li>
 				</ul>
 				<% if current_planner.id == session[:planner_id] %>
-					<%= link_to("Work on a draft", new_draft_path, class: 'button alt') %>
-					<%= link_to("Submit a trip", new_trip_path, class: 'button alt') %>
+					<%= link_to("Trip.It", new_trip_path, class: 'button alt') %>
 					<br><br>
 					<%= link_to("Edit Profile", edit_planner_path(@planner)) %>
 				<% else %>
@@ -31,20 +30,20 @@
 		</div>
 		<div class="row">
 			<div class="6u 12u$(xsmall)">
-			<h4> Drafts </h4>
-			<% @planner.drafts.each do |draft| %>
+			<h4> Categories </h4>
+			<% @planner.trips.category.each do |category| %>
 				<ul>
-					<li>draft.name</li>
+					<li>category.name</li>
+					<% end %>
 				</ul>
-			<% end %>
 		</div>
 		<div class="6u 12u$(xsmall)">
-			<h4> Trips </h4>
-			<% @planner.trips.each do |trip| %>
-				<ul>
-					<li>trip.name</li>
-				</ul>
-			<% end %>
+  		<h4> Trips </h4>
+			<ul>
+				<% @planner.trips.each do |trip| %>
+					<li><%= link_to trip.name, trip_path(trip)%>| <%= trip.category.name %> </li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 

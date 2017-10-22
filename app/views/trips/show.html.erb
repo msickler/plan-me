@@ -5,8 +5,8 @@
 		<header class="major special">
 			<h2>Trip.<%= @trip.name %></h2>
       <h4>Category: <%= link_to @trip.category.name, category_path(@trip.category) if @trip.category %></h3>
-			<p>By: <%= @trip.planner.name %></p>
-      <p>for: <%= @trip.goer.name %></p>
+			<p>By: <%= link_to @trip.planner.name, planner_path(@trip.planner) %></p>
+      <p>For: <%= link_to @trip.goer.name, goer_path(@trip.goer) %></p>
 		</header>
 			<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?w=1500" alt="night city image"></a>
       <p> <%= @trip.content %> </p>
