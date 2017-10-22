@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get   '/login', :to => 'sessions#new', :as => :login
+
+
+  get '/auth/facebook/callback' => 'sessions#create'
+
+
   root 'home#index'
   get 'home/contact'
   get 'home/main'

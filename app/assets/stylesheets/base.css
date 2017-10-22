@@ -1655,11 +1655,12 @@
 		}
 
 	a {
-		text-decoration: underline;
-		color: #f32853;
+		text-decoration: underline;;
+		color: #1a4dbc;
 	}
 
 		a:hover {
+			color: #b4b5ba;
 			text-decoration: none;
 		}
 
