@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  has_many :trips
+  has_many :trip_categories
+  has_many :trips, through: :trip_categories
 end
