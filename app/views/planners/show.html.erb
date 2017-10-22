@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="6u 12u$(xsmall)">
 			<h4> Categories </h4>
-			<% @planner.trips.category.each do |category| %>
+			<% @planner.trips.categories.each do |category| %>
 				<ul>
 					<li>category.name</li>
 					<% end %>
@@ -41,7 +41,7 @@
   		<h4> Trips </h4>
 			<ul>
 				<% @planner.trips.each do |trip| %>
-					<li><%= link_to trip.name, trip_path(trip)%>| <%= trip.category.name %> </li>
+					<li><%= link_to trip.name, trip_path(trip)%></li>
 				<% end %>
 			</ul>
 		</div>
