@@ -8,10 +8,7 @@
 				<ul class="alt">
 					<li><strong> Type: </strong><%= @planner.personality %></li>
 					<li><strong> Motif: </strong><%= @planner.reason %></li>
-					<li><strong> Scope: </strong><% if @planner.international == true %>
-  					Global <% else %> The US
-						<% end %>
-					</li>
+					<li><strong> Scope: </strong><%= @planner.international? %></li>
 					<li><strong> Contact: </strong><%= @planner.email %></li>
 				</ul>
 				<% if current_planner.id == session[:planner_id] %>

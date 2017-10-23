@@ -8,12 +8,9 @@
 				<ul class="alt">
 					<li><strong> Type: </strong><%= @goer.personality %></li>
 					<li><strong> Motif: </strong><%= @goer.reason %></li>
-          <li><strong> Budget: </strong><% @goer.budget %>
-          <li><strong> Companion(s): </strong><% @goer.companion %>
-					<li><strong> Scope: </strong><% if @goer.international == true %>
-  					Global <% else %> The US
-						<% end %>
-					</li>
+          <li><strong> Budget: </strong><%= @goer.budget %>
+          <li><strong> Companion(s): </strong><%= @goer.companion %>
+					<li><strong> Scope: </strong> <%= @goer.international? %></li>
 					<li><strong> Contact: </strong><%= @goer.email %></li>
 				</ul>
 				<% if current_goer.id == session[:goer_id] %>
