@@ -3,4 +3,8 @@ class Category <  ActiveRecord::Base
   has_many :trips, through: :trip_categories
 
   validates :name, presence: true
+
+  def self.trips_category
+    joins(:trips)
+  end
 end
