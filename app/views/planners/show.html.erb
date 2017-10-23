@@ -12,7 +12,7 @@
 					<li><strong> Contact: </strong><%= @planner.email %></li>
 				</ul>
 				<% if current_planner.id == session[:planner_id] %>
-					<%= link_to("Trip.It", new_trip_path, class: 'button alt') %>
+					<%= link_to("Trip.It", new_planner_trip_path(@planner), class: 'button alt') %>
 					<br><br>
 					<%= link_to("Edit Profile", edit_planner_path(@planner)) %>
 				<% else %>

@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get 'home/main'
   delete 'logout' => 'sessions#destroy'
   resources :goers
-  resources :planners do
-    resources :trips, only: [:show, :index]
+  resources :planners
+
+  resources :planners, only: [:show, :index] do
+    resources :trips, only: [:show, :index, :new, :edit]
   end
 
   resources :trips

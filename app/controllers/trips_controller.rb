@@ -14,7 +14,7 @@ class TripsController < ApplicationController
   end
 
   def new
-    @trip = Trip.new
+    @trip = Trip.new(planner_id: params[:planner_id])
   end
 
   def create
@@ -42,7 +42,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name], :author_id)
   end
 
   def require_login
