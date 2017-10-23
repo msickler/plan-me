@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:sample]
+  #before_action :require_login
+  #skip_before_action :require_login, only: [:sample]
 
   def sample
   end
@@ -81,11 +81,12 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name], :planner_id, :goer_id)
+    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name])
   end
 
-  def require_login
-    return head(:forbidden) unless session.include? :goer_id || :planner_id
-  end
+  #def require_login
+  #  return head(:forbidden) unless session.include? :goer_id || :planner_id
+  #end
+
 
 end

@@ -27,11 +27,8 @@
 		</div>
 		<div class="row">
 			<div class="6u 12u$(xsmall)">
-
-		</div>
-		<div class="6u 12u$(xsmall)">
-  		<h4> Trips </h4>
-			<ul>
+  			<h4> Trips </h4>
+				<ul>
 				<% @planner.trips.each do |trip| %>
 					<li><%= link_to trip.name, planner_trip_path(@planner, trip)%> -
 						<% trip.categories.each do |cat| %>

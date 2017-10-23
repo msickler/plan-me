@@ -31,7 +31,11 @@
 	  		<h4> Trips </h4>
 				<ul>
 					<% @goer.trips.each do |trip| %>
-						<li><%= link_to trip.name, trip_path(trip)%> | <%= trip.category.name %> </li>
+						<li><%= link_to trip.name, goer_trip_path(@goer, trip)%> -
+							<% trip.categories.each do |cat| %>
+							<%= link_to cat.name, category_path(cat)%>
+							<% end %>
+						</li>
 					<% end %>
 				</ul>
 			</div>

@@ -26,7 +26,6 @@ class PlannersController < UsersController
   def show
     #if session[:user_id]
     @planner = Planner.find_by(id: params[:id])
-    binding.pry
 
   end
 

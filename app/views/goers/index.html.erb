@@ -16,7 +16,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<%= render @goers %>
+						<%= render partial: 'goers', locals: {goers: @goers}  %>
 					</tr>
 				</tbody>
 			</table>
