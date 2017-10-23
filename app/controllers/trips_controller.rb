@@ -35,7 +35,6 @@ class TripsController < ApplicationController
       redirect_to planners_path, alert: "Planner not found."
     else
       @trip = Trip.new(planner_id: params[:planner_id])
-      binding.pry
     end
   end
 

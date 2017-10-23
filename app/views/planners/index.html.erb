@@ -15,11 +15,8 @@
             <th>Scope</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<%= render @planners %>
-					</tr>
-				</tbody>
+				<%= render partial: 'planners', locals: {planners: @planners}  %>
+
 			</table>
 		</div>
 	</section>

@@ -1,4 +1,12 @@
+<tbody>
+  <tr>
+
+<% planners.each do |planner| %>
+
 <td><%= link_to planner.name, planner_path(planner) %></td>
 <td><%= planner.personality%></td>
 <td><%= planner.reason %></td>
 <td><%= international? planner %></td>
+</tr>
+</tbody>
+ <% end %>

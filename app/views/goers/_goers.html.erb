@@ -1,4 +1,8 @@
-<% goers.each do |goer| %>
+
+<tbody>
+  <tr>
+    <% goers.each do |goer| %>
+
 
 
 <td><%= link_to goer.name, goer_path(goer) %></td>
@@ -6,5 +10,7 @@
 <td><%= goer.reason %></td>
 <td><%= goer.budget %></td>
 <td><%= international? goer %></td>
+</tr>
+</tbody>
 
 <% end %>
