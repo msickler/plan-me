@@ -19,6 +19,7 @@ class GoersController < UsersController
   end
 
   def show
+    #if session[:user_id]
     @goer = Goer.find_by(id: params[:id])
   end
 

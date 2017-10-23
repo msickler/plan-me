@@ -1,4 +1,4 @@
-class Trip < ApplicationRecord
+class Trip <  ActiveRecord::Base
   belongs_to :goer
   belongs_to :planner
   has_many :trip_categories

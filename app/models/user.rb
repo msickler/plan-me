@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User <  ActiveRecord::Base
 
   has_secure_password
   validates :email, :name, :personality, :reason, presence: true

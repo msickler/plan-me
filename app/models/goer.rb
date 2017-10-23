@@ -13,4 +13,16 @@ class Goer < User
     'Goer'
   end
 
+  def self.no_trips_yet
+    where("trips_count = '0'")
+  end
+
+  def self.created_asc
+    order(created_at: :asc)
+  end
+
+  def self.by_trips_count
+    order(:trips_count, created_at: :desc)
+  end
+
 end

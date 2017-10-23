@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-  end
-
   def login
     render :'users/login'
   end
