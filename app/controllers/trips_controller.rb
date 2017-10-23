@@ -14,7 +14,11 @@ class TripsController < ApplicationController
   end
 
   def new
-    @trip = Trip.new(planner_id: params[:planner_id])
+    if params[:planner_id] && !Planner.exists?(params[:planner_id])
+      redirect_to planners_path, alert: "Planner not found."
+    else
+      @trip = Trip.new(planner_id: params[:planner_id])
+    end
   end
 
   def create
@@ -27,7 +31,17 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find(params[:id])
+    if params[:planner_id]
+      planner = Planner.find_by(id: params[:planner_id])
+      if planner.nil?
+        redirect_to planners_path, alert: "Planner not found."
+      else
+        @trip = planner.trips.find_by(id: params[:id])
+        redirect_to planner_trips_path(planner), alert: "Trip not found." if @trip.nil?
+      end
+    else
+      @trip = Trip.find(params[:id])
+    end
   end
 
   def update

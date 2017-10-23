@@ -13,7 +13,8 @@
     </div>
     <% end %>
 
-     <%= f.hidden_field :planner_id %>
+    <%= planner_id_field(@trip) %>
+
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: "Name this trip" %>
   </div>
