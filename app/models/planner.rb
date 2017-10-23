@@ -13,5 +13,12 @@ class Planner < User
     joins(:trips).where(trips: { created_at: time_range })
   end
 
+  def self.all_with_trip_count
+    left_outer_joins(:trips).distinct.select('planners.*, COUNT(trips.*) AS trips_count').group('planners.id')
+  end
+
+
+
+
 
 end

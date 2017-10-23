@@ -25,4 +25,8 @@ class Goer < User
     order(:trips_count, created_at: :desc)
   end
 
+  def self.all_with_trip_count
+    left_outer_joins(:trips).distinct.select('goers.*, COUNT(trips.*) AS trips_count').group('goers.id')
+  end
+
 end
