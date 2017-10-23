@@ -81,7 +81,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name], :planner_id)
+    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name], :planner_id, :goer_id)
   end
 
   def require_login

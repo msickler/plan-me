@@ -1,4 +1,6 @@
 class User <  ActiveRecord::Base
+  has_many :trips
+  has_many :trip_categories, through: :trips
 
   has_secure_password
   validates :email, :name, :personality, :reason, presence: true
