@@ -15,4 +15,8 @@ class Trip < ApplicationRecord
     end
   end
 
+  def self.biggest
+    order("length DESC").first
+  end
+
 end

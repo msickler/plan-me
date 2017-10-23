@@ -1,7 +1,7 @@
 module UsersHelper
 
-  def international?
-    if @user.international == true
+  def international?(user)
+    if user.international == true
       "Global"
     else
       "The US"
