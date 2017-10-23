@@ -4,6 +4,7 @@ module UsersHelper
     if user.international == true
       "Global"
     else
+      user.international == false
       "The US"
     end
   end
