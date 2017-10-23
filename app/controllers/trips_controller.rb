@@ -35,6 +35,7 @@ class TripsController < ApplicationController
       redirect_to planners_path, alert: "Planner not found."
     else
       @trip = Trip.new(planner_id: params[:planner_id])
+      binding.pry
     end
   end
 
@@ -81,7 +82,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:name, :content, :planner_id, :user_id, category_ids:[], categories_attributes: [:name])
   end
 
   #def require_login
