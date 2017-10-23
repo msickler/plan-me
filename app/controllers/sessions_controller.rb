@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def login
+    render :'users/login'
+  end
+
   def create
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:session][:password])
@@ -20,12 +24,12 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:notice] = "Something went wrong. Please try again."
-      redirect_to "/login"
+      redirect_to "/sessions/new"
     end
   end
 
   def destroy
-    session.delete(:user_id)
+    session[:user_id].delete
     redirect_to '/'
   end
 

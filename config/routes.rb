@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get   '/login', :to => 'sessions#new', :as => :login
   get '/auth/facebook/callback' => 'sessions#create'
 
   root 'home#index'
@@ -17,5 +16,6 @@ Rails.application.routes.draw do
   resources :trips
   resources :users
   resources :categories
+  resources :sessions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
