@@ -12,6 +12,7 @@ class PlannersController < UsersController
     @planner = Planner.new(planner_params)
     if @planner.save
       session[:planner_id] = @planner.id
+      binding.pry
       redirect_to planner_path(@planner)
     else
       redirect_to new_planner_path
@@ -25,6 +26,8 @@ class PlannersController < UsersController
   def show
     #if session[:user_id]
     @planner = Planner.find_by(id: params[:id])
+    binding.pry
+
   end
 
   def update
