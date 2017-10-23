@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #def create
+  #def test
   #  @user = User.find_or_create_by(uid: auth['uid']) do |u|
   #    u.name = auth['info']['name']
   #    u.email = auth['info']['email']
@@ -17,14 +17,25 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.authenticate(params[:session][:password])
-      flash[:notice] = "#{@user.name} successfully logged in."
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+    if auth_hash = request.env['omniauth.auth']
+      oauth_email = request.env['omniauth.auth']['email']
+      if user = User.find_by(email: oauth_email)
+        session[:user_id] = user.id
+      else
+        user = User.create(email: oauth_email)
+        session[:user_id] = user.id
+      end
+
     else
-      flash[:notice] = "Something went wrong. Please try again."
-      redirect_to "/sessions/new"
+      @user = User.find_by(email: params[:user][:email])
+      if @user && @user.authenticate(params[:session][:password])
+        flash[:notice] = "#{@user.name} successfully logged in."
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        flash[:notice] = "Something went wrong. Please try again."
+        redirect_to "/sessions/new"
+      end
     end
   end
 
