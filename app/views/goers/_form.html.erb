@@ -1,15 +1,15 @@
 <div class="row uniform 50%">
   <div class="6u 12u$(xsmall)">
-		<%= form_for @goer do |f| %>
+		<%= form_for goer do |f| %>
 
 			<%= f.label :name %>
-			<%= f.text_field :name, placeholder: "Name" %>
+			<%= f.text_field :name, placeholder: (goer.errors.full_messages_for(:name).first || "Name") %>
 
 			<%= f.label :email %>
-			<%= f.text_field :email, placeholder: "Email" %>
+			<%= f.text_field :email, placeholder: (goer.errors.full_messages_for(:email).first || "Email") %>
 
 			<%= f.label :password %>
-			<%= f.password_field :password, placeholder: "A good one" %>
+			<%= f.password_field :password, placeholder: (goer.errors.full_messages_for(:password).first || "A good one" ) %>
 
 			<%= f.label :personality, "What is your travel personality?" %>
 			<%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %>

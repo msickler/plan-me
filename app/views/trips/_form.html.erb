@@ -13,10 +13,10 @@
     </div>
     <% end %>
 
-    <%= planner_id_field(@trip) %>
+    <%= planner_id_field(trip) %>
 
     <%= f.label :name %>
-    <%= f.text_field :name, placeholder: "Name this trip" %>
+    <%= f.text_field :name, placeholder: (trip.errors.full_messages_for(:name).first || "Name this trip") %>
   </div>
   <div class="6u$ 12u$(xsmall)">
      <%= f.collection_select :goer, Goer.all, :id, :name %>
@@ -30,7 +30,7 @@
   </div>
 <br>
 <div class="12u$">
-  <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10" %>
+  <%= f.text_area :content, placeholder: (trip.errors.full_messages_for(:content).first || "Narrate the trip"), rows: "10" %>
 </div>
 <br>
 <div class="12u$">

@@ -1,15 +1,15 @@
 <div class="row uniform 50%">
   <div class="6u 12u$(xsmall)">
-    <%= form_for @planner do |f| %>
+    <%= form_for planner do |f| %>
 
       <%= f.label :name %>
-      <%= f.text_field :name, placeholder: "Name" %>
+      <%= f.text_field :name, placeholder: (planner.errors.full_messages_for(:name).first || "Name") %>
 
       <%= f.label :email %>
-      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.text_field :email, placeholder: (planner.errors.full_messages_for(:email).first || "Email") %>
 
       <%= f.label :password %>
-      <%= f.password_field :password, placeholder: "A good one" %>
+      <%= f.password_field :password, placeholder: (planner.errors.full_messages_for(:password).first || "A good one") %>
 
       <%= f.label :personality, "What personality do you understand?" %>
       <%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %>
