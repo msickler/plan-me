@@ -5,6 +5,9 @@ class Goer < User
   validates :budget, :companion, presence: true
 
   scope :recent, lambda { where('published_at >= ?', Time.now - 1.week) }
+  scope :romantic, -> { where(personality: 'Romantic') }
+  scope :fun, -> { where(reason: 'For Fun') }
+  scope :party, -> { where('companion > ?', 3) }
 
   def find_sti_class(type_name)
     type_name = self.name
@@ -34,5 +37,14 @@ class Goer < User
   def self.recent_with_no_trips
     self.recent.no_trips_yet
   end
+
+  def self.fun_and_loving
+    self.romantic.fun
+  end
+
+  def self.partying
+    self.fun.party
+  end
+
 
 end
