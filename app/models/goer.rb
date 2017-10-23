@@ -4,6 +4,8 @@ class Goer < User
 
   validates :budget, :companion, presence: true
 
+  scope :recent, lambda { where('published_at >= ?', Time.now - 1.week) }
+
   def find_sti_class(type_name)
     type_name = self.name
     super
@@ -27,6 +29,10 @@ class Goer < User
 
   def self.all_with_trip_count
     left_outer_joins(:trips).distinct.select('goers.*, COUNT(trips.*) AS trips_count').group('goers.id')
+  end
+
+  def self.recent_with_no_trips
+    self.recent.no_trips_yet
   end
 
 end

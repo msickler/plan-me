@@ -5,6 +5,8 @@ class Category <  ActiveRecord::Base
   validates :name, presence: true
 
   def self.trips_category
-    joins(:trips)
+    joins(:trips).distinct
   end
+
+
 end
