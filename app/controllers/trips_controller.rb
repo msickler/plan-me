@@ -5,12 +5,29 @@ class TripsController < ApplicationController
   def sample
   end
 
-  def show
-    @trip = Trip.find(params[:id])
+  def index
+    if params[:planner_id]
+      @planner = Planner.find_by(id: params[:planner_id])
+      if @planner.nil?
+        redirect_to planners_path, alert: "Planner not found"
+      else
+        @trips = @planner.trips
+      end
+    else
+      @trips = Trip.all
+    end
   end
 
-  def index
-    @trips = Trip.all
+  def show
+    if params[:planner_id]
+      @planner = Planner.find_by(id: params[:planner_id])
+      @trip = @planner.trips.find_by(id: params[:id])
+      if @trip.nil?
+        redirect_to planner_trips_path(@planner), alert: "Trip not found"
+      end
+    else
+      @trip = Trip.find(params[:id])
+    end
   end
 
   def new
@@ -46,12 +63,20 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:id])
-    if @trip.update(trip_params)
-       redirect_to trip_path(@trip)
+    @trip.update(trip_params)
+    if @trip.save
+       redirect_to @trip
      else
        render :edit
      end
    end
+
+   def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    flash[:notice] = "Trip deleted."
+    redirect_to trips_path
+  end
 
   private
 
