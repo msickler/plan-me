@@ -32,9 +32,12 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:id])
-    @trip.update(trip_params)
-    redirect_to @trip
- end
+    if @trip.update(trip_params)
+       redirect_to trip_path(@trip)
+     else
+       render :edit
+     end
+   end
 
   private
 
