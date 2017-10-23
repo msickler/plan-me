@@ -4,7 +4,6 @@
 	<!-- Table -->
 	<h4>Our Goers</h4>
 	<div class="table-wrapper">
-		<% @goers.each do |goer| %>
 			<table>
 				<thead>
 					<tr>
@@ -17,15 +16,10 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= link_to goer.name, goer_path(goer) %></td>
-						<td><%= goer.personality%></td>
-						<td><%= goer.reason %></td>
-						<td><%= goer.budget %></td>
-            <td><%= goer.international %></td>
+						<%= render @goers %>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-		<% end %>
 	</div>
 </section>

@@ -1,0 +1,7 @@
+<td><%= link_to planner.name, planner_path(planner) %></td>
+<td><%= planner.personality%></td>
+<td><%= planner.reason %></td>
+<td><% if planner.international == true %>
+   Global	<% else %> U S
+  <% end %>
+</td>
