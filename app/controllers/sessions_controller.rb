@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-     session.delete(:user_id)
+     session.delete(:planner_id) && session.delete(:goer_id)
     redirect_to '/'
   end
 
