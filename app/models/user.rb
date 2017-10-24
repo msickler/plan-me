@@ -14,4 +14,10 @@ class User <  ActiveRecord::Base
     end
   end
 
+  def self.with_role(role)
+     @admins = Role.find_by_name('admin').users
+     @planners = Role.find_by_name('planner').users
+     @goers = Role.find_by_name('goer').users
+  end
+
 end

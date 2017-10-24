@@ -13,7 +13,7 @@
 					<li><strong> Global? </strong> <%= @user.international %></li>
 					<li><strong> Contact: </strong><%= @user.email %></li>
 				</ul>
-					<%= link_to("Find Planners", planners_path, class: 'button alt') %>
+					<%= link_to("dashboard", users_path, class: 'button alt') %>
 					<br><br>
 					<%= link_to("Edit Profile", edit_user_path(@user)) %>
 					<%= link_to("Go Back", users_path, class: 'button alt') %>
