@@ -13,13 +13,10 @@
 					<li><strong> Global? </strong> <%= @goer.international %></li>
 					<li><strong> Contact: </strong><%= @goer.email %></li>
 				</ul>
-				<% if current_goer.id == session[:goer_id] %>
 					<%= link_to("Find Planners", planners_path, class: 'button alt') %>
 					<br><br>
 					<%= link_to("Edit Profile", edit_goer_path(@goer)) %>
-				<% else %>
 					<%= link_to("Go Back", goers_path, class: 'button alt') %>
-				<% end %>
 			</div>
     	<div class="6u 12u$(xsmall)">
       	<div class="image fit">

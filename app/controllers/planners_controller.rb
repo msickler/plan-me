@@ -1,4 +1,4 @@
-class PlannersController < UsersController
+class PlannersController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
 
@@ -21,7 +21,12 @@ class PlannersController < UsersController
   end
 
   def edit
-    @planner = Planner.find(params[:id])
+    if current_planner.id == session[:planner_id]
+      @planner = Planner.find(params[:id])
+    else
+      flash[:notice] = "Access Denied."
+      redirect_to planners_path
+    end
   end
 
   def show
@@ -31,9 +36,14 @@ class PlannersController < UsersController
   end
 
   def update
-		@planner = Planner.find(params[:id])
-  	@planner.update(planner_params)
-		redirect_to planner_path(@planner)
+    if current_planner.id == session[:planner_id]
+		   @planner = Planner.find(params[:id])
+  	   @planner.update(planner_params)
+		   redirect_to planner_path(@planner)
+     else
+       flash[:notice] = "Access Denied."
+       redirect_to planners_path
+     end
 	end
 
   private
