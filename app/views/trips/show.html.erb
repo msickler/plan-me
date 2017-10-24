@@ -6,13 +6,15 @@
 			<h2>Trip.<%= @trip.name %></h2>
       <h4>Category: <% @trip.categories.each do |category| %>
         <%= link_to category.name, category_path(@trip.category) if @trip.category %></h4>
-			<p>By: <%= link_to @trip.planner.name, planner_path(@trip.planner) if @trip.planner %>
-      (<%= link_to "Edit Trip", edit_planner_trip_path(@trip.planner, @trip) if @trip.planner %>)</p>
-      <p>For: <%= link_to @trip.goer.name, goer_path(@trip.goer) %></p>
+			<p>By: <%= link_to @trip.user.name, user_path(@trip.user) %>
+        <% if policy(@trip).update? %>
+          <%= link_to "Edit", edit_trip_path(@trip) %>
+        <% end %>
+
 		</header>
 			<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?w=1500" alt="night city image"></a>
       <p> <%= @trip.content %> </p>
-      <% if policy(post).destroy? %>
+      <% if policy(@trip).destroy? %>
     		<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   		<% end %>
   </div>

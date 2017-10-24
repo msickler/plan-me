@@ -2,9 +2,9 @@ class TripPolicy < ApplicationPolicy
   attr_reader :user, :trip
 
   def initialize(user, trip)
-    @user = user
-    @trip = trip
-  end
+       super(user, trip)
+       @trip = record
+     end
 
   def index?
     user.present?
@@ -15,7 +15,7 @@ class TripPolicy < ApplicationPolicy
   end
 
   def update?
-    return true if user.present? && user == trip.user || user.admin?
+    user.present? && trip.try(:user) == user || user.admin?
   end
 
   def destroy?
