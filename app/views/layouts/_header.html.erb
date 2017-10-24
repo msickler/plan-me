@@ -1,12 +1,13 @@
 <!-- Header -->
 <header id="header">
-        <h1><strong><a href="/">Plan.Me</a></strong></h1>
-        <nav id="nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/planners">P(ers)</a></li>
-            <li><a href="/goers">G(ers)</a></li>
-            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-          </ul>
-        </nav>
-      </header>
+  <h1><strong><a href="/">Plan.Me</a></strong></h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><%= link_to "Profile", users_path(@user) %></li>
+        <li><a href="/planners">Planners</a></li>
+        <li><a href="/goers">Goers</a></li>
+        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+      </ul>
+    </nav>
+  </header>

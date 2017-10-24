@@ -1,4 +1,12 @@
-<p> <% @category.trips.each do |trip| %>
-  <%= link_to trip.name, trip_path(trip) %>
-  <% end %>
-</p>
+<section id="main" class="wrapper">
+	<div class="container">
+  <br><br>
+  <header class="major special">
+    <p>Trip.Category</p>
+  </header>
+    <p> <% @category.trips.each do |trip| %>
+      <%= link_to trip.name, trip_path(trip) %>
+      <% end %>
+    </p>
+  </div>
+</section>
