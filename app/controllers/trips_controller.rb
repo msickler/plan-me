@@ -1,22 +1,13 @@
 class TripsController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:sample]
+  before_action :set_trip, only: [:show, :edit, :update, :destroy]
   include TripsHelper
 
   def sample
   end
 
   def index
-    if params[:user_id]
-      @user = User.find_by(id: params[:user_id])
-      if @user.nil?
-        redirect_to users_path, alert: "User not found"
-      else
-        @trips = @user.trips
-      end
-    else
-      @trips = Trip.all
-    end
+    @trips = Trip.all
+    authorize @trips
   end
 
   def show
@@ -32,35 +23,29 @@ class TripsController < ApplicationController
   end
 
   def new
-    if params[:user_id] && !User.exists?(params[:user_id])
-      redirect_to users_path, alert: "User not found."
-    else
-      @trip = Trip.new(user_id: params[:user_id])
-    end
+    @trip = Trip.new
+    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
-    @user = @trip.user
-    if @trip.save
-      redirect_to @trip
-    else
-      render :new
+    @trip.user = current_user
+    authorize @trip
+
+    respond_to do |format|
+      if @trip.save
+        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.json { render :show, status: :created, location: @trip }
+      else
+        format.html { render :new }
+        format.json { render json: @trip.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def edit
-    if params[:user_id]
-      user = User.find_by(id: params[:user_id])
-      if user.nil?
-        redirect_to users_path, alert: "User not found."
-      else
-        @trip = user.trips.find_by(id: params[:id])
-        redirect_to user_trips_path(user), alert: "Trip not found." if @trip.nil?
-      end
-    else
-      @trip = Trip.find(params[:id])
-    end
+    @trip = Trip.find(params[:id])
+    authorize @trip
   end
 
   def update

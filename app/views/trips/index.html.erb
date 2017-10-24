@@ -11,8 +11,6 @@
 		<p><em>Category:</em> <%= link_to trip.category.name, category_path(trip.category) if trip.category %></p>
 		<p><em>Creator:</em><%= link_to trip.user.name, user_path(trip.user) %></p>
 		<% end %>
-
-
-
+		<%= link_to 'New trip', new_trip_path %>
 	</div>
 </section>
