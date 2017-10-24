@@ -1,0 +1,43 @@
+<section id="main" class="wrapper">
+	<div class="container">
+  	<br><br>
+		<div class="row">
+  		<div class="6u 12u$(xsmall)">
+    		<h2> <%= @user.name %></h2>
+				<h4>The Specs</h4>
+				<ul class="alt">
+					<li><strong> Type: </strong><%= @user.personality %></li>
+					<li><strong> Motif: </strong><%= @user.reason %></li>
+          <li><strong> Budget: </strong><%= @user.budget %>
+          <li><strong> Companion(s): </strong><%= @user.companion %>
+					<li><strong> Global? </strong> <%= @user.international %></li>
+					<li><strong> Contact: </strong><%= @user.email %></li>
+				</ul>
+					<%= link_to("Find Planners", planners_path, class: 'button alt') %>
+					<br><br>
+					<%= link_to("Edit Profile", edit_user_path(@user)) %>
+					<%= link_to("Go Back", users_path, class: 'button alt') %>
+			</div>
+    	<div class="6u 12u$(xsmall)">
+      	<div class="image fit">
+        	<img src="https://images.unsplash.com/photo-1496950866446-3253e1470e8e?w=750" alt="">
+    		</div>
+			</div>
+			<div class="row">
+				<div class="6u 12u$(xsmall)">
+	  		<h4> Trips </h4>
+				<ul>
+					<% @user.trips.each do |trip| %>
+						<li><%= link_to trip.name, user_trip_path(@user, trip)%> -
+							<% trip.categories.each do |cat| %>
+							<%= link_to cat.name, category_path(cat)%>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>
+</section>

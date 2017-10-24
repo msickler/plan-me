@@ -1,9 +1,12 @@
 class User <  ActiveRecord::Base
   ROLES = %w[admin planner goer].freeze
+  has_many :trips
+  has_many :trip_categories, through: :trips
+  accepts_nested_attributes_for :trips
 
   has_secure_password
   validates :email, :name, :personality, :reason, :international, presence: true
-  validates :email, uniqueness: true
+  validates :email, :name, uniqueness: true
 
   def self.find_or_create_by_omniauth(auth_hash)
     where(email: auth_hash['info']['email']).first_or_create do |user|

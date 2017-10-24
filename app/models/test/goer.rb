@@ -1,8 +1,8 @@
 class Goer < User
-  has_many :trips
-  has_many :trip_categories, through: :trips
+  #has_many :trips
+  #has_many :trip_categories, through: :trips
 
-  validates :budget, :companion, presence: true
+  #validates :budget, :companion, presence: true
 
   scope :recent, lambda { where('published_at >= ?', Time.now - 1.week) }
   scope :romantic, -> { where(personality: 'Romantic') }

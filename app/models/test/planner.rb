@@ -1,8 +1,8 @@
 class Planner < User
-  has_many :trips
-  has_many :trip_categories, through: :trips
+  #has_many :trips
+  #has_many :trip_categories, through: :trips
 
-  accepts_nested_attributes_for :trips
+  #accepts_nested_attributes_for :trips
 
   def self.workaholics
     joins(:trips).group(:trip_id).having('count(trips.id) > 4')

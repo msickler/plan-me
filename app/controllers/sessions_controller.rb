@@ -9,10 +9,10 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to 'home/welcome'
     else
-      @planner = Planner.find_by(email: params[:user][:email]) || @goer = Goer.find_by(email: params[:user][:email])
-      if @planner && @planner.authenticate(params[:user][:password]) || @goer && @goer.authenticate(params[:user][:password])
-        flash[:notice] = "#{@planner.name} successfully logged in." || "#{@goer.name} successfully logged in."
-        session[:planner_id] = @planner.id || session[:goer_id] = @goer.id
+      @user = User.find_by(email: params[:user][:email])
+      if @user && @user.authenticate(params[:user][:password])
+        flash[:notice] = "#{@user.name} successfully logged in."
+        session[:user_id] = @user.id
         redirect_to '/home/welcome'
       else
         flash[:notice] = "Something went wrong. Please try again."
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-     session.delete(:planner_id) && session.delete(:goer_id)
+     session.delete(:user_id)
     redirect_to '/'
   end
 

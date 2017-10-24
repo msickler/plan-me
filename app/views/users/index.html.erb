@@ -1,0 +1,25 @@
+<section id="main" class="wrapper">
+	<div class="container">
+  <br><br>
+	<!-- Table -->
+	<h4>Members</h4>
+	<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Motif</th>
+						<th>Budget</th>
+            <th>Global</th>
+					</tr>
+				</thead>
+				<%= render partial: 'users', locals: {users: @users}  %>
+
+
+			</table>
+		</div>
+
+
+	</div>
+</section>
