@@ -1,19 +1,9 @@
 class TripPolicy < ApplicationPolicy
-  class Scope
-    attr_reader :user, :scope
+  attr_reader :user, :trip
 
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      if user.admin?
-        scope.all
-      else
-        scope.where(published: true)
-      end
-    end
+  def initialize(user, trip)
+    @user = user
+    @trip = trip
   end
 
   def index?

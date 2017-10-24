@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  after_action :verify_authorized
 
   def index
     @users = User.all
@@ -50,8 +49,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:id, :name, :email, :password, :personality, :reason, :international, roles: [])
     end
 
-    def require_login
-      return head(:forbidden) unless session.include? :user_id
-    end
+
 
 end
