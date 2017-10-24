@@ -16,9 +16,10 @@
 
       <%= f.label :reason, "What travel reasons do you most understand?" %>
       <%= f.select :reason, [['Honeymoon'], ['Family Trip'], ['Cleansing Time'], ['For Fun'], ['For Tourism']] %>
-      <br>
-      <input type="checkbox" id="international" name="international">
-	    <label for="international">Are you an international planner?</label>
+
+      <%= f.label :international, "Willing to travel international?" %>
+			<%= f.select :international, [['Yes'], ['No']] %>
+
       <br>
       <ul class="actions">
         <li><%= f.submit "Make me a Planner" %></li>
