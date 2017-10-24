@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :planners
 
   resources :planners, only: [:show, :index] do
-    resources :trips, only: [:show, :index, :new, :edit]
+    resources :trips, only: [:new, :edit]
   end
 
   resources :trips
