@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  after_action :verify_authorized
 
   def index
     @users = User.all
@@ -32,9 +33,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.id == session[:user_id]
-		   @user = User.find(params[:id])
-  	   @user.update(user_params)
+	   @user = User.find(params[:id])
+     authorize @user
+  	 @user.assign_attributes(user_params)
+     if @user.save
 		   redirect_to user_path(@user)
      else
        flash[:notice] = "Access Denied."

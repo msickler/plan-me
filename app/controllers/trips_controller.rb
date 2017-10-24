@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_authorized, only: :sample
   include TripsHelper
 
   def sample
