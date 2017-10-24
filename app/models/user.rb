@@ -1,5 +1,5 @@
 class User <  ActiveRecord::Base
-
+  ROLES = %w[admin planner goer].freeze
 
   has_secure_password
   validates :email, :name, :personality, :reason, :international, presence: true
