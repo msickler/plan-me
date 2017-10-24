@@ -1,4 +1,6 @@
 class GoersController < UsersController
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
 
   def index
     @goers = Goer.all
@@ -39,6 +41,10 @@ class GoersController < UsersController
   private
     def goer_params
       params.require(:goer).permit(:id, :name, :email, :password, :personality, :reason, :budget, :companion, :international)
+    end
+
+    def require_login
+      return head(:forbidden) unless session.include? :planner_id || :goer_id
     end
 
   end

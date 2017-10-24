@@ -1,4 +1,6 @@
 class PlannersController < UsersController
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
 
   def index
     @planners = Planner.all
@@ -38,6 +40,10 @@ class PlannersController < UsersController
 
     def planner_params
       params.require(:planner).permit(:id, :name, :email, :password, :personality, :reason, :international)
+    end
+
+    def require_login
+      return head(:forbidden) unless session.include? :planner_id || :goer_id
     end
 
 end
