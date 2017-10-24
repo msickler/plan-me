@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   get 'home/main'
   get 'home/welcome'
   delete 'logout' => 'sessions#destroy'
-  resources :goers
-  resources :planners
 
-  resources :planners, only: [:show, :index] do
+  resources :users, only: [:show, :index] do
     resources :trips, only: [:new, :edit]
   end
 

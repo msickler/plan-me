@@ -6,12 +6,12 @@ class TripsController < ApplicationController
   end
 
   def index
-    if params[:planner_id]
-      @planner = Planner.find_by(id: params[:planner_id])
-      if @planner.nil?
-        redirect_to planners_path, alert: "Planner not found"
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      if @user.nil?
+        redirect_to users_path, alert: "User not found"
       else
-        @trips = @planner.trips
+        @trips = @user.trips
       end
     else
       @trips = Trip.all
@@ -19,11 +19,11 @@ class TripsController < ApplicationController
   end
 
   def show
-    if params[:planner_id]
-      @planner = Planner.find_by(id: params[:planner_id])
-      @trip = @planner.trips.find_by(id: params[:id])
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      @trip = @user.trips.find_by(id: params[:id])
       if @trip.nil?
-        redirect_to planner_trips_path(@planner), alert: "Trip not found"
+        redirect_to user_trips_path(@user), alert: "Trip not found"
       end
     else
       @trip = Trip.find(params[:id])
@@ -31,10 +31,10 @@ class TripsController < ApplicationController
   end
 
   def new
-    if params[:planner_id] && !Planner.exists?(params[:planner_id])
-      redirect_to planners_path, alert: "Planner not found."
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to users_path, alert: "User not found."
     else
-      @trip = Trip.new(planner_id: params[:planner_id])
+      @trip = Trip.new(user_id: params[:user_id])
     end
   end
 
@@ -48,13 +48,13 @@ class TripsController < ApplicationController
   end
 
   def edit
-    if params[:planner_id]
-      planner = Planner.find_by(id: params[:planner_id])
-      if planner.nil?
-        redirect_to planners_path, alert: "Planner not found."
+    if params[:user_id]
+      user = User.find_by(id: params[:user_id])
+      if user.nil?
+        redirect_to users_path, alert: "User not found."
       else
-        @trip = planner.trips.find_by(id: params[:id])
-        redirect_to planner_trips_path(planner), alert: "Trip not found." if @trip.nil?
+        @trip = user.trips.find_by(id: params[:id])
+        redirect_to user_trips_path(user), alert: "Trip not found." if @trip.nil?
       end
     else
       @trip = Trip.find(params[:id])
@@ -81,11 +81,11 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, :planner_id, :user_id, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:name, :content, :user_id, :user_id, category_ids:[], categories_attributes: [:name])
   end
 
   def require_login
-    return head(:forbidden) unless session.include? :planner_id || :goer_id
+    return head(:forbidden) unless session.include? :user_id
   end
 
 end

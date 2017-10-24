@@ -12,15 +12,13 @@
       </ul>
     </div>
     <% end %>
-    <%= f.hidden_field :planner_id, value: @planner.id %>
+    <%= f.hidden_field :user_id %>
 
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: (trip.errors.full_messages_for(:name).first || "Name this trip") %>
   </div>
   <div class="6u$ 12u$(xsmall)">
-        <%= f.label :goer %>
-         <%= f.collection_select :goer_id, Goer.all, :id, :name, :include_blank => "Pick a Goer" %>
-    <!-- <%= f.collection_select(:goer_id, Goer.all, :id, :name) %> -->
+
   </div>
 </div><br>
 <div class="12u$">

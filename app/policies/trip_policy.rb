@@ -1,5 +1,5 @@
 class TripPolicy < ApplicationPolicy
   def destroy?
-    user.admin?
+    user.admin? || record.user == user
   end
 end
