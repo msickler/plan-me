@@ -2,7 +2,7 @@ class User <  ActiveRecord::Base
 
 
   has_secure_password
-  validates :email, :name, :personality, :reason, presence: true
+  validates :email, :name, :personality, :reason, :international, presence: true
   validates :email, uniqueness: true
 
   def self.find_or_create_by_omniauth(auth_hash)

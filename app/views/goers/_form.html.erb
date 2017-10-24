@@ -20,12 +20,12 @@
 			<%= f.label :budget, "What is your budget?" %>
 			<%= f.select :budget, [['$1,000'], ['$5,000'], ['$7,000'], ['$10,000']] %>
 
+      <%= f.label :international, "Willing to travel international?" %>
+			<%= f.select :international, [['Yes'], ['No']] %>
+
 			<%= f.label :companion, "How many people are you bringing?" %>
-			<%= f.text_field :companion %>
-			<br><br>
-			<input type="checkbox" id="international" name="international">
-			<label for="international">Are you willing to travel outside of the U.S.?</label>
-  		<br>
+			<%= f.number_field :companion %>
+			<br>
 			<ul class="actions">
 				<li><%= f.submit "Make me a Goer" %></li>
 				<li><%= link_to("Nvm, I'm a Planner", new_planner_path, class: "button alt") %></li>

@@ -10,7 +10,7 @@
 					<li><strong> Motif: </strong><%= @goer.reason %></li>
           <li><strong> Budget: </strong><%= @goer.budget %>
           <li><strong> Companion(s): </strong><%= @goer.companion %>
-					<li><strong> Scope: </strong> <%= international? @goer %></li>
+					<li><strong> Global? </strong> <%= @goer.international %></li>
 					<li><strong> Contact: </strong><%= @goer.email %></li>
 				</ul>
 				<% if current_goer.id == session[:goer_id] %>
