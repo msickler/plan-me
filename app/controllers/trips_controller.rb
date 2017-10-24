@@ -72,11 +72,11 @@ class TripsController < ApplicationController
    end
 
    def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
-    flash[:notice] = "Trip deleted."
-    redirect_to trips_path
-  end
+     @trip = Trip.find(params[:id])
+     authorize @trip
+     @trip.destroy
+     redirect_to trips_url, notice: 'Post was successfully destroyed.'
+   end
 
   private
 

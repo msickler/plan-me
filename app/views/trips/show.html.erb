@@ -12,5 +12,8 @@
 		</header>
 			<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?w=1500" alt="night city image"></a>
       <p> <%= @trip.content %> </p>
+      <% if policy(post).destroy? %>
+    		<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  		<% end %>
   </div>
 </section>

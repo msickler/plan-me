@@ -9,6 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pry-rails'
 gem 'clearance', '~> 1.11'
+gem 'pundit'
 
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
