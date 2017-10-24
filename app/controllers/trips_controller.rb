@@ -11,15 +11,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    if params[:user_id]
-      @user = User.find_by(id: params[:user_id])
-      @trip = @user.trips.find_by(id: params[:id])
-      if @trip.nil?
-        redirect_to user_trips_path(@user), alert: "Trip not found"
-      end
-    else
-      @trip = Trip.find(params[:id])
-    end
   end
 
   def new
@@ -44,35 +35,34 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find(params[:id])
-    authorize @trip
   end
 
   def update
-    @trip = Trip.find(params[:id])
-    @trip.update(trip_params)
-    if @trip.save
-       redirect_to @trip
-     else
-       render :edit
-     end
+    respond_to do |format|
+      if @trip.update(trip_params)
+        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+        format.json { render :show, status: :ok, location: @trip }
+      else
+        format.html { render :edit }
+        format.json { render json: @trip.errors, status: :unprocessable_entity }
+      end
+    end
    end
 
    def destroy
-     @trip = Trip.find(params[:id])
-     authorize @trip
      @trip.destroy
-     redirect_to trips_url, notice: 'Post was successfully destroyed.'
+     redirect_to trips_url, notice: 'Trip was successfully destroyed.'
    end
 
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, :user_id, :user_id, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:name, :content, :user_id, category_ids:[], categories_attributes: [:name])
   end
 
-  def require_login
-    return head(:forbidden) unless session.include? :user_id
+  def set_trip
+    @trip = Trip.find(params[:id])
+    authorize @trip
   end
 
 end
