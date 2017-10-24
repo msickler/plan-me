@@ -11,6 +11,7 @@
 			<%= f.label :password %>
 			<%= f.password_field :password, placeholder: (user.errors.full_messages_for(:password).first || "A good one" ) %>
 
+      <%= f.label :role %>
       <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 
 			<%= f.label :personality, "What is your travel personality?" %>

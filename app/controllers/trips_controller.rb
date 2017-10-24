@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:sample]
+  include TripsHelper
 
   def sample
   end
@@ -40,6 +41,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @user = @trip.user
     if @trip.save
       redirect_to @trip
     else

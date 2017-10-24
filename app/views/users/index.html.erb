@@ -1,11 +1,11 @@
 <section id="main" class="wrapper">
 	<div class="container">
-  <br><br>
-	<!-- Table -->
-	<h4>Members</h4>
-	<h4>Planners:</h4>
-	<p><%= @planners %></p>
-	<div class="table-wrapper">
+  	<br><br>
+		<!-- Table -->
+		<h4>Planners:</h4>
+		<p><%=  %></p>
+		<div class="table-wrapper">
+			<h4>Members</h4>
 			<table>
 				<thead>
 					<tr>
@@ -17,11 +17,7 @@
 					</tr>
 				</thead>
 				<%= render partial: 'users', locals: {users: @users}  %>
-
-
 			</table>
 		</div>
-
-
 	</div>
 </section>

@@ -1,11 +1,11 @@
 module TripsHelper
 
-  def planner_id_field(trip)
-      if trip.planner.nil?
-        select_tag "trip[planner_id]", options_from_collection_for_select(Planner.all, :id, :name)
+  def user_id_field(trip)
+      if trip.user.nil?
+        select_tag "trip[user_id]", options_from_collection_for_select(User.all, :id, :name)
       else
-        hidden_field_tag "trip[planner_id]", trip.planner_id
+        hidden_field_tag "trip[user_id]", trip.user_id
       end
     end
 
-end 
+end
