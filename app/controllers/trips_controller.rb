@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :set_trip, only: [:sample]
   include TripsHelper
 
   def sample
