@@ -20,7 +20,11 @@ class User <  ActiveRecord::Base
   end
 
   def self.planners
-    where("role = planner")
+    where("role = 'planner'")
+  end
+
+  def self.goers
+    where("role = 'goer'")
   end
 
   def self.with_role(role)

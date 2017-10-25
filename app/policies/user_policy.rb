@@ -1,7 +1,11 @@
 class UserPolicy < ApplicationPolicy
 
+  #def update?
+  #    user == resource
+  #end
   def update?
-      user == resource
+    user.present? && user.try(:user) == user || user.is_admin?
   end
+
 
 end
