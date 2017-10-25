@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :must_log_in, only: [:index, :show]
   before_action :set_user, only: [:edit, :update]
   before_action :authorize_user, only: [:edit, :update]
 

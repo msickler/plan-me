@@ -8,6 +8,21 @@ class User <  ActiveRecord::Base
   validates :email, :name, :personality, :reason, :international, :companion, :budget, presence: true
   validates :email, :name, uniqueness: true
   validates :role, inclusion: { in: %w(admin planner goer) }
+  scope :planner, -> { where(role: 'planner') }
+  scope :romance, -> { where(reason: 'honeymoon')}
+
+  def romantic
+    self.where(personality: 'romantic')
+  end
+
+  def honeymoon
+    self.where(reason: 'honeymoon')
+  end
+
+  def romantic_honeymoon
+    self.romantic && self.honeymoon
+  end
+
 
   def self.find_or_create_by_omniauth(auth_hash)
     where(email: auth_hash['info']['email']).first_or_create do |user|
@@ -29,6 +44,10 @@ class User <  ActiveRecord::Base
 
   def self.goers
     where("role = 'goer'")
+  end
+
+  def self.best_member(user)
+    self.planners.group_by
   end
 
 

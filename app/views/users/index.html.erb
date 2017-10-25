@@ -4,6 +4,10 @@
 		<div class="table-wrapper">
 			<header class="major special">
 				<p>Browse Members</p>
+				<p><% @users.each do |user| %>
+					<%= user.romantic_honeymoon  %>
+				</p>
+				<% end %>
 				<br>
 			<table>
 				<thead>

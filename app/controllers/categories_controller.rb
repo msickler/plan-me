@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
   end
 
 private
-def ingredient_params
+def category_params
   params.require(:category).permit(:name)
 end
 

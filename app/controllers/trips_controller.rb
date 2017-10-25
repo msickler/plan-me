@@ -1,9 +1,7 @@
 class TripsController < ApplicationController
+  before_action :must_log_in
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   before_action :require_planner, only: [:new, :create, :edit, :update]
-
-  #skip_before_action :set_trip, only: [:sample]
-  #include TripsHelper
 
   def index
     @trips = Trip.all
