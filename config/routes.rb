@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/contact'
   get 'home/main'
   get 'home/welcome'
+  get 'home/sample'
   delete 'logout' => 'sessions#destroy'
   resources :trips
   resources :users

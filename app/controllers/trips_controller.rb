@@ -1,11 +1,12 @@
 class TripsController < ApplicationController
-  before_action :require_planner, only: [:new, :create]
+  before_action :require_planner, only: [:new, :create, :edit, :update]
 
   #before_action :set_trip, only: [:show, :edit, :update, :destroy]
   #skip_before_action :set_trip, only: [:sample]
   #include TripsHelper
 
   def sample
+    redirect_to '/home/sample'
   end
 
   def index

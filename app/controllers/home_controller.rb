@@ -12,5 +12,8 @@ class HomeController < ApplicationController
   def welcome
   end
 
+  def sample
+  end
+
 
 end
