@@ -4,7 +4,7 @@
 		<div class="table-wrapper">
 			<header class="major special">
 				<p>Browse Members</p>
-			</header>
+				<br>
 			<table>
 				<thead>
 					<tr>
@@ -17,6 +17,7 @@
 				</thead>
 				<%= render partial: 'users', locals: {users: @users}  %>
 			</table>
+			</header>
 			<header class="major special">
 				<p>Admins</p>
 				<% @users.each do |user| %>
