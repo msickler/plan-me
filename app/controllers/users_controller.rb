@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     @planners = User.planners
     @goers = User.goers
     @romantics = User.romantics
+    @honeymooners = User.honeymooners
+    @connoisseurs = User.connoisseurs
+    @luckystars = User.luckystars
   end
 
   def new

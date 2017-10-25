@@ -15,13 +15,19 @@ class User <  ActiveRecord::Base
     where(personality: 'Romantic')
   end
 
-  def honeymoon
-    self.where(reason: 'honeymoon')
+  def self.honeymooners
+    where(reason: 'Honeymoon')
   end
 
-  def romantic_honeymoon
-    self.romantic && self.honeymoon
+  def self.connoisseurs
+    where(personality: 'Intellectual').where(reason: 'For Tourism')
   end
+
+  def self.luckystars
+    where(budget: '$10,000').where(international: 'Yes')
+  end
+
+
 
 
   def self.find_or_create_by_omniauth(auth_hash)

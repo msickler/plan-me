@@ -52,10 +52,30 @@
 		</div>
 		<div class="6u 12u$(xsmall)">
 			<header class="major special">
+				<p> find exactly who you're looking for </p>
 		<h4> The romantics: <% @romantics.each do |rom| %>
 			<%= link_to rom.name, user_path(rom) %>.
 				<% end %>
 		</h4>
+		<em>That's what they're here for.</em>
+		<br>
+		<h4> The honeymooners: <% @honeymooners.each do |hon| %>
+			<%= link_to hon.name, user_path(hon) %>.
+				<% end %>
+		</h4>
+		<em>Exactly that.</em>
+		<br>
+		<h4> The connoisseurs: <% @connoisseurs.each do |con| %>
+			<%= link_to con.name, user_path(con) %>.
+				<% end %>
+		</h4>
+		<em>or Intellectuals looking for more museums.</em>
+		<br>
+		<h4> The luckystars: <% @luckystars.each do |luc| %>
+			<%= link_to luc.name, user_path(luc) %>.
+				<% end %>
+		</h4>
+		<em>No budget limit, also international, of course.</em>
 	</header>
 </div>
 		</div>
