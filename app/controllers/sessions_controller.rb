@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        flash[:error] = "Something went wrong. Please try again."
+        flash[:notice] = "Error, Email and Password don't match."
         render :new
       end
     end

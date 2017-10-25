@@ -16,8 +16,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:notice] = "#{@user.name.capitalize} was successfully registered."
       redirect_to user_path(@user)
     else
+      flash[:notice] = "Something went wrong."
       redirect_to new_user_path
     end
   end
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
   def update
   	 @user.update(user_params)
      if @user.save
+       flash[:notice] = "#{@user.name.capitalize} was updated."
 		   redirect_to user_path(@user)
      else
        flash[:notice] = "Access Denied."

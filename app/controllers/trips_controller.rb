@@ -17,6 +17,7 @@ class TripsController < ApplicationController
       @trip = Trip.new(trip_params)
       @trip.user_id = current_user.id
       if @trip.save
+        flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
         redirect_to trip_path(@trip)
       else
         flash[:notice] = "Sorry, something went wrong."
@@ -34,6 +35,7 @@ class TripsController < ApplicationController
   def update
     @trip.update(trip_params)
     if @trip.save
+      flash[:notice] = "#{@trip.name.capitalize} was updated!"
       redirect_to trip_path(@trip)
     else
       flash[:notice] = "Access Denied."
