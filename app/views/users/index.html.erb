@@ -17,6 +17,39 @@
 				</thead>
 				<%= render partial: 'users', locals: {users: @users}  %>
 			</table>
+			<header class="major special">
+				<p>Admins</p>
+				<% @users.each do |user| %>
+					<h4> <% if user.role == 'admin' %>
+						「<%= link_to user.name.capitalize, user_path(user) %>」
+						<% end %>
+					</h4>
+					<% end %>
+			</header>
+			<div class="row">
+			<div class="6u 12u$(xsmall)">
+			<header class="major special">
+				<p>Planners</p>
+				<% @users.each do |user| %>
+					<h4> <% if user.role == 'planner' %>
+						「<%= link_to user.name.capitalize, user_path(user) %>」
+						<% end %>
+					</h4>
+					<% end %>
+			</header>
 		</div>
+		<div class="6u 12u$(xsmall)">
+			<header class="major special">
+				<p>Goers</p>
+				<% @users.each do |user| %>
+					<h4> <% if user.role == 'goer' %>
+						「<%= link_to user.name.capitalize, user_path(user) %>」
+						<% end %>
+					</h4>
+					<% end %>
+			</header>
+		</div>
+		</div>
+	</div>
 	</div>
 </section>
