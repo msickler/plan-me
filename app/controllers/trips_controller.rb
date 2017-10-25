@@ -23,6 +23,7 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to "/trips/#{@trip.id}"
     else
+      flash[:notice] = "Sorry, something went wrong."
       redirect_to "/trips/new"
     end
   end

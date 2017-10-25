@@ -23,12 +23,16 @@
   <% else %>
       <%= render 'layouts/header' %>
   <% end %>
-
-  <div id="flash">
+ <br><br>
+  <div id="flash" class="field_with_errors">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 </div>
+<% if flash[:notice] %>
+    <div class="field_with_errors"><%= flash[:notice] %></div>
+  <% end %>
+
 <%= content_tag(:div, flash[:error], :id=> "flash_error", class: "errors") if flash[:error] %>
  <%= content_tag(:div, flash[:notice], :id => "flash_notice", class: "errors") if flash[:notice] %>
  <%= content_tag(:div, flash[:alert], :id => "flash_alert", class: "errors") if flash[:alert] %>
