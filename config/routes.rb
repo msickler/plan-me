@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/contact'
   get 'home/main'
-  get 'home/welcome'
   get 'home/sample'
   delete 'logout' => 'sessions#destroy'
   resources :trips
@@ -16,6 +15,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     resources :trips, only: [:new, :edit]
   end
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
