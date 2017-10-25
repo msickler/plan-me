@@ -4,10 +4,6 @@
 		<div class="table-wrapper">
 			<header class="major special">
 				<p>Browse Members</p>
-				<p><% @users.each do |user| %>
-					<%= user.romantic_honeymoon  %>
-				</p>
-				<% end %>
 				<br>
 			<table>
 				<thead>
@@ -54,6 +50,14 @@
 					<% end %>
 			</header>
 		</div>
+		<div class="6u 12u$(xsmall)">
+			<header class="major special">
+		<h4> The romantics: <% @romantics.each do |rom| %>
+			<%= link_to rom.name, user_path(rom) %>.
+				<% end %>
+		</h4>
+	</header>
+</div>
 		</div>
 	</div>
 	</div>

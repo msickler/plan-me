@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
     @planners = User.planners
     @goers = User.goers
+    @romantics = User.romantics
   end
 
   def new

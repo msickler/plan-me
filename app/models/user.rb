@@ -11,8 +11,8 @@ class User <  ActiveRecord::Base
   scope :planner, -> { where(role: 'planner') }
   scope :romance, -> { where(reason: 'honeymoon')}
 
-  def romantic
-    self.where(personality: 'romantic')
+  def self.romantics
+    where(personality: 'Romantic')
   end
 
   def honeymoon
@@ -46,9 +46,7 @@ class User <  ActiveRecord::Base
     where("role = 'goer'")
   end
 
-  def self.best_member(user)
-    self.planners.group_by
-  end
+
 
 
 
