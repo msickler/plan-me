@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024175445) do
+ActiveRecord::Schema.define(version: 20171025025148) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 20171024175445) do
     t.string "password_digest"
     t.string "personality"
     t.string "reason"
-    t.integer "budget"
-    t.integer "companion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "international"
@@ -47,6 +45,8 @@ ActiveRecord::Schema.define(version: 20171024175445) do
     t.string "encrypted_password", limit: 128
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
+    t.string "budget"
+    t.string "companion"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

@@ -5,7 +5,7 @@ class User <  ActiveRecord::Base
   accepts_nested_attributes_for :trips
 
   has_secure_password
-  validates :email, :name, :personality, :reason, :international, presence: true
+  validates :email, :name, :personality, :reason, :international, :companion, :budget, presence: true
   validates :email, :name, uniqueness: true
   validates :role, inclusion: { in: %w(admin planner goer) }
 
@@ -31,10 +31,6 @@ class User <  ActiveRecord::Base
     where("role = 'goer'")
   end
 
-  def self.with_role(role)
-     @admins = Role.find_by_name('admin').users
-     @planners = Role.find_by_name('planner').users
-     @goers = Role.find_by_name('goer').users
-  end
+
 
 end

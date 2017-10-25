@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
       else
         flash[:notice] = "Something went wrong. Please try again."
-        redirect_to "sessions/new"
+        render :new
       end
     end
   end
