@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+  before_action :require_planner, only: [:new, :create]
+
   #before_action :set_trip, only: [:show, :edit, :update, :destroy]
   #skip_before_action :set_trip, only: [:sample]
   #include TripsHelper
@@ -15,15 +17,15 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
-    @trip.user_id = current_user.id
-    binding.pry
-    if @trip.save
-      redirect_to trip_path(@trip)
-    else
-      flash[:notice] = "Sorry, something went wrong."
-      redirect_to new_trip_path
-    end
+      @trip = Trip.new(trip_params)
+      @trip.user_id = current_user.id
+      if @trip.save
+        redirect_to trip_path(@trip)
+      else
+        flash[:notice] = "Sorry, something went wrong."
+        redirect_to new_trip_path
+      end
+
   end
 
   def show
@@ -59,5 +61,9 @@ class TripsController < ApplicationController
   def set_trip
     @trip = Trip.find(params[:id])
   end
+
+  def require_planner
+     return head(:forbidden) unless current_user.role == 'planner' || current_user.role == 'admin'
+   end
 
 end

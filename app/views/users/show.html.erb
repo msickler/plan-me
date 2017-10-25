@@ -32,11 +32,11 @@
 					<% if @user.role == 'planner'%>
 					<h3> Trips by <%= @user.name %></h3>
 					<% @user.trips.each do |trip| %>
-						<li><strong><%= link_to trip.name.capitalize, trip_path(trip) %></strong> <em>under:
+						<h4><strong>「<%= link_to trip.name.capitalize, trip_path(trip) %>」</strong> <em>under:</em>
 					  	<% trip.categories.each do |category| %>
-								<%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %>.</em>
+								「<%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %>」
 					  	<% end %>
-						</li><br>
+						</h4>
 						<% end %>
 					<% end %>
 				</div>
