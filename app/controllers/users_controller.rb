@@ -35,8 +35,7 @@ class UsersController < ApplicationController
 
   def update
 	   @user = User.find(params[:id])
-     authorize @user
-  	 @user.assign_attributes(user_params)
+  	 @user.update(user_params)
      if @user.save
 		   redirect_to user_path(@user)
      else

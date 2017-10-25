@@ -27,7 +27,7 @@
 			<%= f.select :international, [['Yes'], ['No']] %>
 
 			<%= f.label :companion, "How many people are you bringing?" %>
-			<%= f.number_field :companion %>
+			<%= f.text_field :companion %>
 			<br><br>
 				<%= f.submit "submit" %>
 		<% end %>

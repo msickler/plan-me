@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  after_action :verify_policy_scoped, only: :index
   include TripsHelper
 
   def sample

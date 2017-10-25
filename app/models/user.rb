@@ -19,6 +19,10 @@ class User <  ActiveRecord::Base
     role == 'admin'
   end
 
+  def self.admins
+    where("role = 'admin'")
+  end
+
   def self.planners
     where("role = 'planner'")
   end

@@ -4,9 +4,7 @@
     <nav id="nav">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><%= link_to "Profile", users_path(@user) %></li>
-        <li><a href="/planners">Planners</a></li>
-        <li><a href="/goers">Goers</a></li>
+        <li><%= link_to "Profile", current_user %></li>
         <li><%= link_to "Log out", logout_path, method: "delete" %></li>
       </ul>
     </nav>
