@@ -15,9 +15,9 @@
 				</ul>
 					<%= link_to("dashboard", users_path, class: 'button alt') %>
 					<br><br>
-					<% if policy(@user).update? %>
+
 		 				<%= link_to("Edit Profile", edit_user_path(@user)) %>
-	 				<% end %>
+
 					<%= link_to("Go Back", users_path, class: 'button alt') %>
 			</div>
     	<div class="6u 12u$(xsmall)">
