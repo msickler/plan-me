@@ -14,9 +14,12 @@
 					<li><strong> Contact: </strong><%= @user.email %></li>
 				</ul>
 					<%= link_to("dashboard", users_path, class: 'button alt') %>
+					<% if current_user.role == 'planner'%>
+						<%= link_to("Trip.me", new_trip_path, class: 'button alt') %>
+					<% end %>
 					<br><br>
 						<% if current_user.id == @user.id %>
-		 				<%= link_to("Edit Profile", edit_user_path(@user)) %>
+		 					<%= link_to("Edit Profile", edit_user_path(@user)) %>
 						<% end %>
 
 			</div>
@@ -25,20 +28,17 @@
         	<img src="https://images.unsplash.com/photo-1496950866446-3253e1470e8e?w=750" alt="">
     		</div>
 			</div>
-			<div class="row">
 				<div class="6u 12u$(xsmall)">
-	  		<h4> Trips </h4>
-				<ul>
-					<% @user.trips.each do |trip| %>
-						<li><%= link_to trip.name, trip_path(trip)%> -
-							<% trip.categories.each do |cat| %>
-							<%= link_to cat.name, category_path(cat)%>
-							<% end %>
-						</li>
+				<h3> Trips by <%= @user.name %></h3>
+				<% @user.trips.each do |trip| %>
+				<li><strong><%= link_to trip.name.capitalize, trip_path(trip) %></strong> <em>under:
+					  <% trip.categories.each do |category| %>
+						<%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %>.</em>
+					      <% end %>
+							</li><br>
 					<% end %>
-				</ul>
-			</div>
-		</div>
+
+				</div>
 
 	</div>
 </div>
