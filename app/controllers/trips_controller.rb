@@ -1,15 +1,14 @@
 class TripsController < ApplicationController
+  include Pundit
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   after_action :verify_policy_scoped, only: :index
-  skip_after_action :verify_authorized, only: :sample
   include TripsHelper
 
   def sample
   end
 
   def index
-    @trips = Trip.all
-    authorize @trips
+    @trips = policy_scope(Trip)
   end
 
   def show

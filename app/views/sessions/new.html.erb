@@ -11,7 +11,8 @@ Password: <%= f.password_field :password %>
 
 <%= f.submit "Login" %>
 <% end %>
-
+<%= ENV['FACEBOOK_KEY'] %>
+<%= ENV['FACEBOOK_SECRET']%>
 「<%= link_to('Log in via Facebook', '/auth/facebook', class: 'button alt') %>」
 「<%= link_to('New? Sign up', '/#two', class: 'button alt') %>」
 </header>
