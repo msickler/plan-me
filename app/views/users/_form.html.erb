@@ -1,15 +1,16 @@
 <div class="row uniform 50%">
   <div class="6u 12u$(xsmall)">
 		<%= form_for user do |f| %>
+    <ul class="errorMessages"></ul>
 
 			<%= f.label :name %>
-			<%= f.text_field :name, placeholder: (user.errors.full_messages_for(:name).first || "Name") %>
+			<%= f.text_field :name, placeholder: (user.errors.full_messages_for(:name).first || "Name"), :required => true %>
 
 			<%= f.label :email %>
-			<%= f.text_field :email, placeholder: (user.errors.full_messages_for(:email).first || "Email") %>
+			<%= f.text_field :email, placeholder: "Email", :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
 
 			<%= f.label :password %>
-			<%= f.password_field :password, placeholder: (user.errors.full_messages_for(:password).first || "A good one" ) %>
+			<%= f.password_field :password, placeholder: (user.errors.full_messages_for(:password).first || "A good one" ), :required => true %>
 
       <%= f.label :role %>
       <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
