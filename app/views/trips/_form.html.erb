@@ -13,9 +13,6 @@
     <% end %>
     <%= f.label :planner %>
     <%= f.collection_select :user_id, User.all, :id, :name %>
-    <%= f.label :goer %>
-    <%= f.collection_select :user_id, User.all, :id, :name %>
-
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: (trip.errors.full_messages_for(:name).first || "Name this trip") %>
   </div>
@@ -27,7 +24,7 @@
       <%= f.label :categories %>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
     <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
-    <%= categories_fields.text_field :name, placeholder: "trip categories" %>
+    <%= categories_fields.text_field :name, placeholder: "categorize this trip" %>
     <% end %>
   </div>
 <br>

@@ -33,17 +33,17 @@ class TripsController < ApplicationController
   end
 
   def edit
+    @trip = Trip.find(params[:id])
   end
 
   def update
-    respond_to do |format|
-      if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
-        format.json { render :show, status: :ok, location: @trip }
-      else
-        format.html { render :edit }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
+    @trip = Trip.find(params[:id])
+    @trip.update(trip_params)
+    if @trip.save
+      redirect_to trip_path(@trip)
+    else
+      flash[:notice] = "Access Denied."
+      redirect_to trips_path
     end
    end
 

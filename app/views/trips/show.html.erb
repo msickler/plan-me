@@ -3,8 +3,8 @@
 		<header class="major special">
 			<h2>Trip.<%= @trip.name %></h2>
       <p>Filed under: <% @trip.categories.each do |category| %>
-        <%= link_to category.name, category_path(@trip.category_ids) if @trip.category_ids %></p>
-        <% end %>
+        <%= link_to category.name, category_path(@trip.category_ids) if @trip.category_ids %> |
+        <% end %></p>
 			<p>Creator: <%= link_to @trip.user.name, user_path(@trip.user) %></p>
     </header>
 		<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?w=1500" alt="night city image"></a>
