@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
+  before_action :authorize_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -25,16 +27,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if current_user.id == session[:user_id]
-      @user = User.find(params[:id])
-    else
-      flash[:notice] = "Access Denied."
-      redirect_to users_path
-    end
   end
 
   def update
-	   @user = User.find(params[:id])
   	 @user.update(user_params)
      if @user.save
 		   redirect_to user_path(@user)
@@ -48,6 +43,14 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:id, :name, :email, :password, :personality, :reason, :international, :companion, :budget, :role)
+    end
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def authorize_user
+      return head(:forbidden) unless @user.id == current_user.id || current_user.role == 'admin'
     end
 
 end

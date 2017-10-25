@@ -1,13 +1,9 @@
 class TripsController < ApplicationController
+  before_action :set_trip, only: [:show, :edit, :update, :destroy]
   before_action :require_planner, only: [:new, :create, :edit, :update]
 
-  #before_action :set_trip, only: [:show, :edit, :update, :destroy]
   #skip_before_action :set_trip, only: [:sample]
   #include TripsHelper
-
-  def sample
-    redirect_to '/home/sample'
-  end
 
   def index
     @trips = Trip.all
@@ -30,15 +26,12 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find_by(id: params[:id])
   end
 
   def edit
-    @trip = Trip.find(params[:id])
   end
 
   def update
-    @trip = Trip.find(params[:id])
     @trip.update(trip_params)
     if @trip.save
       redirect_to trip_path(@trip)
@@ -49,8 +42,13 @@ class TripsController < ApplicationController
    end
 
    def destroy
-     @trip.destroy
-     redirect_to trips_url, notice: 'Trip was successfully destroyed.'
+     if current_user.id == @trip.user_id || current_user.role == 'admin'
+       @trip.destroy
+       redirect_to trips_url, notice: 'Trip was successfully destroyed.'
+     else
+       flash[:notice] = "Access Denied."
+       redirect_to trips_path
+     end
    end
 
   private
