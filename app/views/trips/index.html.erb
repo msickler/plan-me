@@ -2,14 +2,19 @@
 <section id="main" class="wrapper">
 	<div class="container">
 		<header class="major special">
-			<h2>Trip.(s)</h2>
-			<p>Archive</p>
+			<p>Trip.s</p>
 		</header>
-		<% @trips.each do |trip| %>
-		<h4>Trip.<%= trip.name %></h4>
-		<p><em>Category:</em> <%= link_to trip.category_ids, category_path(trip.category_ids) if trip.category_ids %></p>
-		<p><em>Creator:</em><%= link_to trip.user.name, user_path(trip.user) %></p>
-		<% end %>
-		<%= link_to 'New trip', new_trip_path %>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Creator</th>
+					<th>Filed under</th>
+				</tr>
+			</thead>
+			<%= render partial: 'trips', locals: {trips: @trips}  %>
+		</table>
+
+		<%= link_to 'Create.me', new_trip_path, class: 'button alt'%>
 	</div>
 </section>

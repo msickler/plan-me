@@ -3,20 +3,17 @@
   <div class="container">
 		<header class="major special">
 			<h2>Trip.<%= @trip.name %></h2>
-      <h4>Category: <% @trip.categories.each do |category| %>
-        <%= link_to category.name, category_path(@trip.category_ids) if @trip.category_ids %></h4>
+      <p>Filed under: <% @trip.categories.each do |category| %>
+        <%= link_to category.name, category_path(@trip.category_ids) if @trip.category_ids %></p>
         <% end %>
-			<p>By: <%= link_to @trip.user.name, user_path(@trip.user) %>
-        <% if policy(@trip).update? %>
-          <%= link_to "Edit", edit_trip_path(@trip) %>
-        <% end %>
-      </p>
+			<p>Creator: <%= link_to @trip.user.name, user_path(@trip.user) %></p>
+      </header>
 
-		</header>
 			<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?w=1500" alt="night city image"></a>
       <p> <%= @trip.content %> </p>
-      <% if policy(@trip).destroy? %>
-    		<td><%= link_to 'Destroy', @trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  		<% end %>
+    	<td><%= link_to "Edit", edit_trip_path(@trip) %> | <%= link_to 'Delete', @trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+
   </div>
 </section>
