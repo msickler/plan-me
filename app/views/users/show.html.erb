@@ -29,17 +29,17 @@
     		</div>
 			</div>
 				<div class="6u 12u$(xsmall)">
-				<h3> Trips by <%= @user.name %></h3>
-				<% @user.trips.each do |trip| %>
-				<li><strong><%= link_to trip.name.capitalize, trip_path(trip) %></strong> <em>under:
-					  <% trip.categories.each do |category| %>
-						<%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %>.</em>
-					      <% end %>
-							</li><br>
+					<% if @user.role == 'planner'%>
+					<h3> Trips by <%= @user.name %></h3>
+					<% @user.trips.each do |trip| %>
+						<li><strong><%= link_to trip.name.capitalize, trip_path(trip) %></strong> <em>under:
+					  	<% trip.categories.each do |category| %>
+								<%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %>.</em>
+					  	<% end %>
+						</li><br>
+						<% end %>
 					<% end %>
-
 				</div>
-
-	</div>
-</div>
+			</div>
+		</div>
 </section>

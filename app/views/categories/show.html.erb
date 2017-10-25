@@ -1,11 +1,13 @@
 <section id="main" class="wrapper">
 	<div class="container">
-  <header class="major special">
-    <p>Trip.Category</p>
-  </header>
-    <p> <% @category.trips.each do |trip| %>
-      <%= link_to trip.name, trip_path(trip) %>
+  	<header class="major special">
+    	<p>Trip(s).Under.<%= @category.name %></p>
+			<br>
+			<% @category.trips.each do |trip| %>
+    		<h4>「<%= link_to trip.name, trip_path(trip) %>」
+				</h4>
+				<br>
       <% end %>
-    </p>
+  	</header>
   </div>
 </section>
