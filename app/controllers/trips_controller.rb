@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  skip_before_action :set_trip, only: [:sample]
-  include TripsHelper
+  #before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  #skip_before_action :set_trip, only: [:sample]
+  #include TripsHelper
 
   def sample
   end
@@ -10,21 +10,19 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
-  def show
-  end
-
   def new
     @trip = Trip.new
   end
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.user = current_user
+    @trip.user_id = current_user.id
+    binding.pry
     if @trip.save
-      redirect_to "/trips/#{@trip.id}"
+      redirect_to trip_path(@trip)
     else
       flash[:notice] = "Sorry, something went wrong."
-      redirect_to "/trips/new"
+      redirect_to new_trip_path
     end
   end
 
@@ -51,7 +49,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :content, :user_id, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name])
   end
 
   def set_trip

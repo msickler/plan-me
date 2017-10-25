@@ -16,7 +16,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      binding.pry
       redirect_to new_user_path
     end
   end
@@ -24,6 +23,26 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
   end
+
+  def edit
+    if current_user.id == session[:user_id]
+      @user = User.find(params[:id])
+    else
+      flash[:notice] = "Access Denied."
+      redirect_to users_path
+    end
+  end
+
+  def update
+	   @user = User.find(params[:id])
+  	 @user.update(user_params)
+     if @user.save
+		   redirect_to user_path(@user)
+     else
+       flash[:notice] = "Access Denied."
+       redirect_to users_path
+     end
+	end
 
   private
 

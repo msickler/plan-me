@@ -7,7 +7,7 @@
 		</header>
 		<% @trips.each do |trip| %>
 		<h4>Trip.<%= trip.name %></h4>
-		<p><em>Category:</em> <%= link_to trip.category.name, category_path(trip.category) if trip.category %></p>
+		<p><em>Category:</em> <%= link_to trip.category_ids, category_path(trip.category_ids) if trip.category_ids %></p>
 		<p><em>Creator:</em><%= link_to trip.user.name, user_path(trip.user) %></p>
 		<% end %>
 		<%= link_to 'New trip', new_trip_path %>

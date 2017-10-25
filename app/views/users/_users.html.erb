@@ -1,8 +1,8 @@
 <tbody>
   <tr>
     <% users.each do |user| %>
-      <td><%= user.role %></td>
-      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.role.upcase %></td>
+      <td><%= link_to user.name.capitalize, user_path(user) %></td>
       <td><%= user.personality%></td>
       <td><%= user.reason %></td>
       <td><%= user.international %></td>
