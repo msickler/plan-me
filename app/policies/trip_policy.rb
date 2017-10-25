@@ -20,16 +20,16 @@ class TripPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    user.is_admin? || trip.try(:user) == user
   end
 
   def update?
-    user.present? && trip.try(:user) == user || user.admin?
+    trip.try(:user) == user || user.is_admin?
   end
 
-  def destroy?
-    user.present? && user.admin? || user == trip.user
-  end
+#  def destroy?
+#    user.present? && user.is_admin? || user == trip.user
+#  end
 
   private
   def trip

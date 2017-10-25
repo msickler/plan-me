@@ -30,7 +30,7 @@
 	  		<h4> Trips </h4>
 				<ul>
 					<% @user.trips.each do |trip| %>
-						<li><%= link_to trip.name, user_trip_path(@user, trip)%> -
+						<li><%= link_to trip.name, trip_path(trip)%> -
 							<% trip.categories.each do |cat| %>
 							<%= link_to cat.name, category_path(cat)%>
 							<% end %>

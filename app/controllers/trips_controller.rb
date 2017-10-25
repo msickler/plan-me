@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-  include Pundit
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   after_action :verify_policy_scoped, only: :index
   include TripsHelper
@@ -8,7 +7,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = policy_scope(Trip)
+    @trips = Trip.all
   end
 
   def show
@@ -16,13 +15,11 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
-    authorize @trip
 
     respond_to do |format|
       if @trip.save
@@ -63,7 +60,6 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
-    authorize @trip
   end
 
 end
