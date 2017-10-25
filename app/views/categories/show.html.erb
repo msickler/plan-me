@@ -4,7 +4,7 @@
     	<p>Trip(s).Under.<%= @category.name %></p>
 			<br>
 			<% @category.trips.each do |trip| %>
-    		<h4>「<%= link_to trip.name, trip_path(trip) %>」
+    		<h4>「<%= link_to trip.name, trip_path(trip)%>」
 				</h4>
 				<br>
       <% end %>

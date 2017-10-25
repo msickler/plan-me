@@ -3,9 +3,10 @@
     <% trips.each do |trip| %>
       <td><%= link_to trip.name.upcase, trip_path(trip) %></td>
       <td><%= link_to trip.user.name, user_path(trip.user)%></td>
-      <% trip.categories.each do |category| %>
-      <td><%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %></td>
+      <td><% trip.categories.each do |category| %>
+      <%= link_to category.name, category_path(category) if trip.category_ids %> |
       <% end %>
+      </td>
   </tr>
 </tbody>
 <% end %>
