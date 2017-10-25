@@ -14,8 +14,8 @@
 					<li><strong> Contact: </strong><%= @user.email %></li>
 				</ul>
 					<%= link_to("dashboard", users_path, class: 'button alt') %>
-					<% if current_user.role == 'planner'%>
-						<%= link_to("Trip.me", new_trip_path, class: 'button alt') %>
+					<% if current_user.role == 'planner' || current_user.role == 'admin'%>
+						<%= link_to("Trip.it", new_trip_path, class: 'button alt') %>
 					<% end %>
 					<br><br>
 						<% if current_user.id == @user.id %>
