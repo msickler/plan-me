@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @honeymooners = User.honeymooners
     @connoisseurs = User.connoisseurs
     @luckystars = User.luckystars
+    @roadtrippers = User.roadtrippers
   end
 
   def new

@@ -8,8 +8,12 @@ class User <  ActiveRecord::Base
   validates :email, :name, :personality, :reason, :international, :companion, :budget, presence: true
   validates :email, :name, uniqueness: true
   validates :role, inclusion: { in: %w(admin planner goer) }
-  scope :planner, -> { where(role: 'planner') }
-  scope :romance, -> { where(reason: 'honeymoon')}
+
+  def self.find_or_create_by_omniauth(auth_hash)
+    where(email: auth_hash['info']['email']).first_or_create do |user|
+      user.password = SecureRandom.hex
+    end
+  end
 
   def self.romantics
     where(personality: 'Romantic')
@@ -27,13 +31,8 @@ class User <  ActiveRecord::Base
     where(budget: '$10,000').where(international: 'Yes')
   end
 
-
-
-
-  def self.find_or_create_by_omniauth(auth_hash)
-    where(email: auth_hash['info']['email']).first_or_create do |user|
-      user.password = SecureRandom.hex
-    end
+  def self.roadtrippers
+    where(budget: '$1,000').where(international: 'No').where(companion: '1-2')
   end
 
   def is_admin?
@@ -51,9 +50,4 @@ class User <  ActiveRecord::Base
   def self.goers
     where("role = 'goer'")
   end
-
-
-
-
-
 end
