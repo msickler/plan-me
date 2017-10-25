@@ -1,17 +1,15 @@
 <section id="main" class="wrapper">
 	<div class="container">
-  <header class="major special">
-    <p>Login</p>
-
-<%= form_for :user, url: '/sessions' do |f| %>
-Email: <%= f.text_field :email %>
-Password: <%= f.password_field :password %>
-<br>
-
-<%= f.submit "Login" %>
-<% end %>
-「<%= link_to('Log in via Facebook', '/auth/facebook', class: 'button alt') %>」
-「<%= link_to('New? Sign up', '/#two', class: 'button alt') %>」
-</header>
-</div>
+  	<header class="major special">
+    	<p>Login</p>
+				<%= form_for :user, url: '/sessions' do |f| %>
+					Email: <%= f.text_field :email %>
+					Password: <%= f.password_field :password %>
+					<br>
+					<%= f.submit "Login" %>
+				<% end %>
+			「<%= link_to('Log in via Facebook', '/auth/facebook', class: 'button alt') %>」
+			「<%= link_to('New? Sign up', '/#two', class: 'button alt') %>」
+		</header>
+	</div>
 </section>

@@ -3,28 +3,29 @@
     <%= form_for trip do |f| %>
     <% if trip.errors.any? %>
       <div class="errors">
-      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
-      <ul>
-        <% trip.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+        <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+        <ul>
+          <% trip.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
     <%= f.label :planner, "Who's writing?" %>
     <%= f.collection_select :user_id, User.all, :id, :name %>
+  </div>
+  <div class="6u 12u$(xsmall)">
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
   </div>
-  </div>
-
+</div>
 <div class="12u$">
-      <%= f.label :categories %>
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-    <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
+  <%= f.label :categories %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
     <%= categories_fields.text_field :name, placeholder: "categorize this trip", :required => true %>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 <br>
 <div class="12u$">
   <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true %>
@@ -36,5 +37,4 @@
     <li><input type="reset" value="Reset"></li>
   </ul>
 </div>
-
-  <% end %>
+<% end %>

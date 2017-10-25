@@ -12,16 +12,15 @@ class TripsController < ApplicationController
   end
 
   def create
-      @trip = Trip.new(trip_params)
-      @trip.user_id = current_user.id
-      if @trip.save
-        flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
-        redirect_to trip_path(@trip)
-      else
-        flash[:notice] = "Sorry, something went wrong."
-        redirect_to new_trip_path
-      end
-
+    @trip = Trip.new(trip_params)
+    @trip.user_id = current_user.id
+    if @trip.save
+      flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
+      redirect_to trip_path(@trip)
+    else
+      flash[:notice] = "Sorry, something went wrong."
+      redirect_to new_trip_path
+    end
   end
 
   def show
@@ -39,7 +38,7 @@ class TripsController < ApplicationController
       flash[:notice] = "Access Denied."
       redirect_to trips_path
     end
-   end
+  end
 
    def destroy
      if current_user.id == @trip.user_id || current_user.role == 'admin'

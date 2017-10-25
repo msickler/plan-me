@@ -9,11 +9,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def welcome
-  end
-
   def sample
   end
-
 
 end
