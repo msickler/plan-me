@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Plan . Me
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+Plan.Me is a web application for registered members only, for travelling enthusiasts. Whether you are one to travel around the world, or anywhere you can, or you are one who has an ability to plan and sketch out trips, and you would like to "work" as freelancing trip planning. Think of it like a wedding planner, but more comfy, because it's online, easier and less stressfull.
+As a member you can sign up as a Goer and get in touch with Planners that are experts in your particular preferences, or the other way around, and be a Planner looking to pair-up with the right Goer. If you're good at planning honeymoons, for example, you'll see who is looking for that exactly.
+In one sentence, Plan.Me is a website to bring the community of travel-lovers together in an easy, clean way.
 
-* System dependencies
+## Usage
 
-* Configuration
+To use this app, just clone, run `bundle install`, followed by `rake db:migrate` and run the server.
+Everything should be set up.
 
-* Database creation
+## Contributors Guide
 
-* Database initialization
+We're happy to accept contributors. Please read ahead to learn how to make the most meaningful and useful impact.
 
-* How to run the test suite
+# Submit a Pull Request to Suggest an Improvement
 
-* Services (job queues, cache servers, search engines, etc.)
+If you see an opportunity for improvement and can make the change yourself go ahead and use a typical git workflow to make it happen:
 
-* Deployment instructions
+Fork this curriculum repository
+Make the change on your fork, with descriptive commits in the standard format
+Open a Pull Request against this repo
+A curriculum owner will review your change and approve or comment on it in due course.
 
-* ...
+## License
+
+See [LICENSE](https://github.com/msickler/japan_seeings/blob/master/LICENSE) for the project license.
