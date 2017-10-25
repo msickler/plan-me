@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  #before_action :must_log_in, only: [:new, :show, :update]
+  #before_action :current_user, only: [:new, :show, :update]
 
   def index
     @users = User.all
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.build(user_params)
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
