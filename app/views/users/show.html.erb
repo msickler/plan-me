@@ -11,7 +11,7 @@
 				</ul>
 					<%= link_to("dashboard", users_path, class: 'button alt') %>
 					<% if current_user.role == 'planner' || current_user.role == 'admin'%>
-						<%= link_to("Trip.it", new_trip_path, class: 'button alt') %>
+						<%= link_to("Trip.it", new_user_trip_path(@user), class: 'button alt') %>
 					<% end %>
 					<br><br>
 						<% if current_user.id == @user.id || current_user.is_admin? %>
@@ -27,7 +27,7 @@
 					<% if @user.role == 'planner' || @user.role == 'admin' %>
 					<h3> Trips by <%= @user.name %></h3>
 					<% @user.trips.each do |trip| %>
-						<h4><strong>-「<%= link_to trip.name.capitalize, trip_path(trip) %>」</strong> <em>under:</em>
+						<h4><strong>-「<%= link_to trip.name.capitalize, user_trip_path(trip) %>」</strong> <em>under:</em>
 					  	<% trip.categories.each do |category| %>
 								「<%= link_to category.name, category_path(trip.category_ids) if trip.category_ids %>」
 					  	<% end %>
