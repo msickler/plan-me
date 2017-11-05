@@ -1,21 +1,20 @@
 <section id="main" class="wrapper">
 	<div class="container">
-		<!-- Table -->
 		<div class="table-wrapper">
 			<header class="major special">
 				<p>Browse Planners</p>
 				<br>
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Motif</th>
-            <th>Global</th>
-					</tr>
-				</thead>
-				<%= render partial: 'planners', locals: {users: @users}  %>
-			</table>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Motif</th>
+	            <th>Global</th>
+						</tr>
+					</thead>
+					<%= render partial: 'planners', locals: {users: @users}  %>
+				</table>
 			<p>Browse Goers</p>
 			<br>
 			<table>
