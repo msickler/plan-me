@@ -23,101 +23,83 @@
    User.create(name: 'Dany', email: 'dany@gmail.com', password: 'dany1', password_confirmation: 'dany1', personality: 'Intellectual', reason: 'Family Trip', international: 'Yes', companion: '1-2', budget: '$10,000', role: 'admin' )
    User.create(name: 'Jon', email: 'jon@gmail.com', password: 'jon1', password_confirmation: 'jon1', personality: 'Intellectual', reason: 'Family Trip', international: 'Yes', companion: '1-2', budget: '$10,000', role: 'admin' )
 
+   Category.create(id: 1, name: 'Summer')
+   Category.create(id: 2, name: 'Winter')
+   Category.create(id: 3, name: 'Honeymoon')
+   Category.create(id: 4, name: 'Family')
+   Category.create(id: 5, name: 'Asia')
+   Category.create(id: 6, name: 'Europe')
+   Category.create(id: 7, name: 'Beach')
+   Category.create(id: 8, name: 'National')
+   Category.create(id: 9, name: 'Overseas')
+   Category.create(id: 10, name: 'Zen')
+   Category.create(id: 11, name: 'Scenic')
+   Category.create(id: 12, name: 'Extreme')
+   Category.create(id: 13, name: 'Roadtrip')
+   Category.create(id: 14, name: 'Foodie')
+   Category.create(id: 15, name: 'Mexico')
+   Category.create(id: 16, name: 'Party')
+   Category.create(id: 17, name: 'City Vibes')
+
    Trip.create(name: 'Miami Weekend', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
    Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
    No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
    Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
    Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-    user_id: 2)
+    user_id: 2, category_ids: [7, 8, 1])
 
     Trip.create(name: 'Hawaii Getaway', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
     Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
     No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
     Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
     Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-     user_id: 8)
+     user_id: 8, category_ids: [7,1,9])
 
      Trip.create(name: 'Tokyo', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
      Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
      No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
      Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
      Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-      user_id: 8)
+      user_id: 8, category_ids: [5,17,14])
 
       Trip.create(name: 'To Rome', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
       Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
       No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
       Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
       Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-       user_id: 12)
+       user_id: 12, category_ids: [6,9,11,14])
 
        Trip.create(name: 'Little Roadtrip', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
        Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
        No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
        Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
        Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-        user_id: 13)
+        user_id: 13, category_ids: [13,14,8])
 
         Trip.create(name: 'I HEART NYC', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
         Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
         No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
         Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
         Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-         user_id: 14)
+         user_id: 14, category_ids: [17,16,8,14])
 
          Trip.create(name: 'Mexico City', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
          Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
          No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
          Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
          Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-          user_id: 15)
+          user_id: 15, category_ids: [14,4,15])
 
           Trip.create(name: 'To Mordor', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
           Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
           No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
           Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
           Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-           user_id: 16)
+           user_id: 16, category_ids: [3,12,10])
 
            Trip.create(name: 'The Artic', content: 'Lorem ipsum dolor sit amet, iisque atomorum similique nec id. Et erat aliquid vel, habemus commune reprimique id vis. An qui debitis offendit, assum congue concludaturque in sed, nec paulo consul ex. Usu in quot populo fuisset, id vis tamquam equidem detracto. At adversarium deterruisset mei, ex vim agam singulis qualisque, nec laudem alterum ne.
-
            Detraxit necessitatibus vel ut, per id facete tractatos, has meliore sadipscing ad. Id ius errem recteque adolescens. Pro tota neglegentur no, usu soleat everti molestiae an. Ea nec etiam habemus appellantur.
-
            No mea pertinax postulant, ne solum legendos adolescens nam, quod ignota ad mei. Ei duo facer suscipit. Mea ut laudem scripserit, vim ei dicit salutandi. Periculis interpretaris ea est, sit te illud affert corrumpit. Ne dolor accusam vel. Tale tantas scripta ius te, numquam luptatum dignissim vim ex, aliquam eruditi pertinacia no nam.
-
            Nec latine petentium no. Mei solet feugait at, nam ut affert veritus vivendo. Ius blandit scribentur ad, cibo causae quaestio id has, cu mandamus aliquando cum. Mel sumo nibh oporteat ea, option ocurreret vim cu, tota eligendi mei id. An quo urbanitas torquatos expetendis, homero honestatis vis id.
-
            Scripta aliquid at ius. Cu inciderint consequuntur sit, est at erat harum affert, usu et aeque vidisse. Torquatos democritum duo ea, ut qui doctus mandamus, usu debet delenit ne. Ut quis mucius eum, hinc efficiantur ad vel. Vis cu animal dissentiet, vix ei vide saperet facilisi.',
-            user_id: 16)
+            user_id: 16, category_ids: [3,4,16])
