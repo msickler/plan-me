@@ -21,25 +21,20 @@
 
   </head>
   <body class="landing">
-  <% if current_page?(root_path) %>
-      <%= render 'home/header' %>
-  <% else %>
-      <%= render 'layouts/header' %>
+    <% if current_page?(root_path) %>
+        <%= render 'home/header' %>
+    <% else %>
+        <%= render 'layouts/header' %>
+    <% end %>
+
+  <% if flash[:notice] || flash[:error] || flash[:alert]%>
+    <div class="alert alert-success alert-dismissable"><br>
+      <% if flash[:error] %><div id="flash_error" class="errors"><%= flash[:error]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
+      <% if flash[:notice] %><div id="flash_notice" class="errors"><%= flash[:notice]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
+      <% if flash[:alert] %><div id="flash_alert" class="errors"><%= flash[:alert]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
+      <%#= content_tag(:div, flash[:error], :id=> "flash_error", class: "errors") if flash[:error] %>
+    </div>
   <% end %>
-
-<% if flash[:notice] || flash[:error] || flash[:alert]%>
-<div class="alert alert-success alert-dismissable"><br>
-  <% if flash[:error] %><div id="flash_error" class="errors"><%= flash[:error]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
-  <% if flash[:notice] %><div id="flash_notice" class="errors"><%= flash[:notice]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
-  <% if flash[:alert] %><div id="flash_alert" class="errors"><%= flash[:alert]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
-  <%#= content_tag(:div, flash[:error], :id=> "flash_error", class: "errors") if flash[:error] %>
-  <%#= content_tag(:div, flash[:notice], :id => "flash_notice", class: "errors") if flash[:notice] %>
-  <%#= content_tag(:div, flash[:alert], :id => "flash_alert", class: "errors") if flash[:alert] %>
-
-</div>
-<% end %>
-  <!--<div class="errorMessages"><%= flash[:notice] %>
-  </div> -->
 
 <%= yield %>
 
@@ -53,12 +48,13 @@
 			</ul>
 	</div>
 </footer>
+
 <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
-  <!-- Script for validations  -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+<!-- Script for validations  -->
       <script>
           var createAllErrors = function() {
               var form = $( this ),
@@ -103,30 +99,5 @@
 
           $( "form" ).each( createAllErrors );
       </script>
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '{your-app-id}',
-      cookie     : true,
-      xfbml      : true,
-      version    : '{latest-api-version}'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
   </body>
 </html>
