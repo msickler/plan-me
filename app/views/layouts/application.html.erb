@@ -16,6 +16,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
   <body class="landing">
   <% if current_page?(root_path) %>
@@ -25,12 +28,18 @@
   <% end %>
 
 <% if flash[:notice] || flash[:error] || flash[:alert]%>
-  <br>
-  <%= content_tag(:div, flash[:error], :id=> "flash_error", class: "errors") if flash[:error] %>
-  <%= content_tag(:div, flash[:notice], :id => "flash_notice", class: "errors") if flash[:notice] %>
-  <%= content_tag(:div, flash[:alert], :id => "flash_alert", class: "errors") if flash[:alert] %>
+<div class="alert alert-success alert-dismissable"><br>
+  <% if flash[:error] %><div id="flash_error" class="errors"><%= flash[:error]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
+  <% if flash[:notice] %><div id="flash_notice" class="errors"><%= flash[:notice]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
+  <% if flash[:alert] %><div id="flash_alert" class="errors"><%= flash[:alert]%><a href="#" class="close" data-dismiss="alert"> [x]</a></div><% end %>
+  <%#= content_tag(:div, flash[:error], :id=> "flash_error", class: "errors") if flash[:error] %>
+  <%#= content_tag(:div, flash[:notice], :id => "flash_notice", class: "errors") if flash[:notice] %>
+  <%#= content_tag(:div, flash[:alert], :id => "flash_alert", class: "errors") if flash[:alert] %>
+
+</div>
 <% end %>
-  <div class="errorMessages"><%= flash[:notice] %></div>
+  <!--<div class="errorMessages"><%= flash[:notice] %>
+  </div> -->
 
 <%= yield %>
 

@@ -18,6 +18,9 @@
 		vertical-align: baseline;
 	}
 
+	.close {
+		text-decoration: none;
+	}
 	.errors {
 		padding: 10px;
 		text-align: center;
