@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :trips
   resources :users
-  resources :categories
   resources :sessions
 
   resources :users, only: [:index] do

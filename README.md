@@ -10,7 +10,7 @@ In one sentence, Plan.Me is a website to bring the community of travel-lovers to
 
 ## Usage
 
-To use this app, just clone, run `bundle install`, followed by `rake db:migrate` and run the server.
+To use this app, just clone, run `bundle install`, followed by `rake db:migrate`, `rake db:seed` and run the server.
 Everything should be set up.
 
 ## Contributors Guide
@@ -28,4 +28,4 @@ A curriculum owner will review your change and approve or comment on it in due c
 
 ## License
 
-See [LICENSE](https://github.com/msickler/japan_seeings/blob/master/LICENSE) for the project license.
+See [LICENSE](https://github.com/msickler/plan-me/blob/master/LICENSE) for the project license.
