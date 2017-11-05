@@ -6,6 +6,16 @@
 
 (function($) {
 
+	$('.errorMessages').find('ul').each(function(){
+   var txt = $("li", this).text();
+   if(txt.length <= 0){
+      $(this).hide();
+   }
+});
+if(!$('.errorMessages').find('ul:visible').length){
+    $('.errorMessages').hide();
+}
+
 	skel.breakpoints({
 		xlarge:	'(max-width: 1680px)',
 		large:	'(max-width: 1280px)',
