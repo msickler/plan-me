@@ -1,32 +1,34 @@
 <div class="row uniform 50%">
   <div class="6u 12u$(xsmall)">
-    <%= form_for trip do |f| %>
+    <%= form_for trip, validate: true do |f| %>
+    <%= f.error_messages %>
+<!--
     <% if trip.errors.any? %>
       <div class="errors">
-        <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+        <h2>Errors prohibited this trip from being saved:</h2>
         <ul>
-          <% trip.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+          <% trip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
         </ul>
       </div>
-    <% end %>
+    <% end %> -->
   </div>
   <div class="12u$">
     <%= hidden_field_tag "user_id", @user_id %>
 
     <%= f.label :name %>
-    <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
+    <%= f.text_field :name, placeholder: "Name this trip"%>
 
     <%= f.label :categories, "Select & Create" %>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
     <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
-      <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
+      <%= categories_fields.text_field :name, placeholder: "categorize it"%>
     <% end %>
   </div>
   <br>
   <div class="12u$">
-    <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true %>
+    <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10"%>
   </div>
   <br>
   <div class="12u$">

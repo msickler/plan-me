@@ -3,6 +3,7 @@ class Trip <  ActiveRecord::Base
   has_many :trip_categories
   has_many :categories, through: :trip_categories
 
+  validates :name, :content, presence: true
   validates :name, uniqueness: true, length: { minimum: 5 }
   validates :content, length: { minimum: 600 }
 
