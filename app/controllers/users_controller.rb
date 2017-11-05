@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def authorize_user
-    return head(:forbidden) unless @user.id == current_user.id || current_user.role == 'admin'
+    return head(:forbidden) unless @user.id == current_user.id || current_user.is_admin?
   end
 
 end

@@ -14,7 +14,7 @@
 						<%= link_to("Trip.it", new_trip_path, class: 'button alt') %>
 					<% end %>
 					<br><br>
-						<% if current_user.id == @user.id %>
+						<% if current_user.id == @user.id || current_user.is_admin? %>
 		 					<%= link_to("Edit Profile", edit_user_path(@user)) %>
 						<% end %>
 			</div>

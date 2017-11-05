@@ -1,7 +1,12 @@
 <tbody>
   <tr>
     <% trips.each do |trip| %>
-      <td><%= link_to trip.name.upcase, trip_path(trip) %></td>
+      <td>
+        <% if current_user.is_admin? %>
+          <%= link_to '⌦', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <%= link_to trip.name.upcase, trip_path(trip) %>
+      </td>
       <td><%= link_to trip.user.name, user_path(trip.user)%></td>
       <td><% trip.categories.each do |category| %>
         <%= link_to category.name, category_path(category) if trip.category_ids %> |
