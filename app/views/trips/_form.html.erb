@@ -11,30 +11,28 @@
         </ul>
       </div>
     <% end %>
-    <%= f.label :planner, "Who's writing?" %>
-    <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
-  <div class="6u 12u$(xsmall)">
+  <div class="12u$">
+    <%= hidden_field_tag "user_id", @user_id %>
+
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
+
+    <%= f.label :categories, "Select & Create" %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
+      <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
+    <% end %>
   </div>
-</div>
-<div class="12u$">
-  <%= f.label :categories %>
-  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-  <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
-    <%= categories_fields.text_field :name, placeholder: "categorize this trip", :required => true %>
+  <br>
+  <div class="12u$">
+    <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true %>
+  </div>
+  <br>
+  <div class="12u$">
+    <ul class="actions">
+      <li><%=f.submit "Submit", class: "special" %></li>
+      <li><input type="reset" value="Reset"></li>
+    </ul>
+  </div>
   <% end %>
-</div>
-<br>
-<div class="12u$">
-  <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true %>
-</div>
-<br>
-<div class="12u$">
-  <ul class="actions">
-    <li><%=f.submit "Submit", class: "special" %></li>
-    <li><input type="reset" value="Reset"></li>
-  </ul>
-</div>
-<% end %>

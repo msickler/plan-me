@@ -10,7 +10,7 @@
 					<%= render partial: 'user', locals: {user: @user}  %>
 				</ul>
 					<%= link_to("dashboard", users_path, class: 'button alt') %>
-					<% if current_user.role == 'planner' || current_user.role == 'admin'%>
+					<% if current_user.id == @user.id && current_user.role == 'planner' || current_user.is_admin? %>
 						<%= link_to("Trip.it", new_user_trip_path(@user), class: 'button alt') %>
 					<% end %>
 					<br><br>

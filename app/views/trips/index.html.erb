@@ -15,7 +15,7 @@
 		</table>
 
 		<% if current_user.role == 'planner' || current_user.role == 'admin' %>
-			<%= link_to 'Create.me', new_trip_path, class: 'button alt'%>
+			<%= link_to 'Create.me', new_user_trip_path(@current_user.id), class: 'button alt'%>
 		<% end %>
 	</div>
 </section>

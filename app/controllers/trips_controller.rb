@@ -9,7 +9,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    @user_id = current_user.id 
+    @user_id = current_user.id
   end
 
   def create

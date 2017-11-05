@@ -8,7 +8,7 @@
         <% else logged_in? %>
           <li><%= link_to "Profile", current_user %></li>
           <% if current_user.role == 'planner' || current_user.role == 'admin'%>
-            <li><%= link_to "Plan.it", new_trip_path %></li>
+            <li><%= link_to "Plan.it", new_user_trip_path(@current_user.id) %></li>
           <% end %>
           <li><%= link_to "Browse", users_path %></li>
           <li><%= link_to "Trips", trips_path %></li>
