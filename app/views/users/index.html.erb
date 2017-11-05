@@ -3,19 +3,31 @@
 		<!-- Table -->
 		<div class="table-wrapper">
 			<header class="major special">
-				<p>Browse Members</p>
+				<p>Browse Planners</p>
 				<br>
 			<table>
 				<thead>
 					<tr>
-						<th>Role</th>
 						<th>Name</th>
 						<th>Type</th>
 						<th>Motif</th>
             <th>Global</th>
 					</tr>
 				</thead>
-				<%= render partial: 'users', locals: {users: @users}  %>
+				<%= render partial: 'planners', locals: {users: @users}  %>
+			</table>
+			<p>Browse Goers</p>
+			<br>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Motif</th>
+						<th>Global</th>
+					</tr>
+				</thead>
+				<%= render partial: 'goers', locals: {users: @users}  %>
 			</table>
 			</header>
 			<header class="major special">
@@ -28,34 +40,12 @@
 					<% end %>
 			</header>
 		<div class="row">
-			<div class="6u 12u$(xsmall)">
-				<header class="major special">
-					<p>Planners</p>
-					<% @users.each do |user| %>
-					<h4> <% if user.role == 'planner' %>
-						「<%= link_to user.name.capitalize, user_path(user) %>」
-						<% end %>
-					</h4>
-					<% end %>
-			</header>
-		</div>
-		<div class="6u 12u$(xsmall)">
 			<header class="major special">
-				<p>Goers</p>
-				<% @users.each do |user| %>
-					<h4> <% if user.role == 'goer' %>
-						「<%= link_to user.name.capitalize, user_path(user) %>」
-						<% end %>
-					</h4>
-					<% end %>
-			</header>
-		</div>
-		<header class="major special">
 			<p> find exactly who you're looking for </p>
 			<h4> The romantics : <% @romantics.each do |rom| %>
 				<%= link_to rom.name, user_path(rom) %>.
 			<% end %>
-			</h4>
+		</h4>
 			<em>That's what they're here for.</em>
 			<br>
 			<h4> The honeymooners : <% @honeymooners.each do |hon| %>

@@ -4,8 +4,11 @@
       <td>
         <% if current_user.is_admin? %>
           <%= link_to '⌦', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to trip.name.upcase, trip_path(trip) %>
+          <%= link_to "(Edit)", edit_trip_path(trip) %>
+        <% else %>
+          <%= link_to trip.name.upcase, trip_path(trip) %>
         <% end %>
-        <%= link_to trip.name.upcase, trip_path(trip) %>
       </td>
       <td><%= link_to trip.user.name, user_path(trip.user)%></td>
       <td><% trip.categories.each do |category| %>

@@ -1,11 +1,12 @@
 <tbody>
   <tr>
     <% users.each do |user| %>
-      <td><%= user.role.upcase %></td>
+    <% if user.role == 'planner' %>
       <td><%= link_to user.name.capitalize, user_path(user) %></td>
       <td><%= user.personality%></td>
       <td><%= user.reason %></td>
       <td><%= user.international %></td>
+    <% end %>
   </tr>
 </tbody>
 <% end %>

@@ -1,0 +1,12 @@
+<tbody>
+  <tr>
+    <% users.each do |user| %>
+    <% if user.role == 'goer' %>
+      <td><%= link_to user.name.capitalize, user_path(user) %></td>
+      <td><%= user.personality%></td>
+      <td><%= user.reason %></td>
+      <td><%= user.international %></td>
+    <% end %>
+  </tr>
+</tbody>
+<% end %>
