@@ -18,6 +18,10 @@
 		vertical-align: baseline;
 	}
 
+	.field_with_errors {
+		z-index: 10002;
+		background-color: red;
+	}
 	.close {
 		text-decoration: none;
 	}

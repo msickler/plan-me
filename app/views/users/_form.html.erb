@@ -4,13 +4,13 @@
     <ul class="errorMessages"></ul>
 
 			<%= f.label :name %>
-			<%= f.text_field :name, placeholder: (user.errors.full_messages_for(:name).first || "Name"), :required => true %>
+			<%= f.text_field :name, placeholder: "Name", :required => true %>
 
 			<%= f.label :email %>
 			<%= f.text_field :email, placeholder: "Email", :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
 
 			<%= f.label :password %>
-			<%= f.password_field :password, placeholder: (user.errors.full_messages_for(:password).first || "A good one" ), :required => true %>
+			<%= f.password_field :password, placeholder: "A good one", :required => true %>
 
       <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation, placeholder: "Confirm your Password", :required => true %>

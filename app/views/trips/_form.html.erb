@@ -1,7 +1,6 @@
 <div class="row uniform 50%">
-  <div class="6u 12u$(xsmall)">
-    <%= form_for trip, validate: true do |f| %>
-    <%= f.error_messages %>
+    <%= form_for trip do |f| %>
+    <ul class="errorMessages"></ul>
 <!--
     <% if trip.errors.any? %>
       <div class="errors">
@@ -13,22 +12,21 @@
         </ul>
       </div>
     <% end %> -->
-  </div>
   <div class="12u$">
     <%= hidden_field_tag "user_id", @user_id %>
 
     <%= f.label :name %>
-    <%= f.text_field :name, placeholder: "Name this trip"%>
+    <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
 
     <%= f.label :categories, "Select & Create" %>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
     <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
-      <%= categories_fields.text_field :name, placeholder: "categorize it"%>
+      <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true%>
     <% end %>
   </div>
   <br>
   <div class="12u$">
-    <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10"%>
+    <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true%>
   </div>
   <br>
   <div class="12u$">

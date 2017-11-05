@@ -19,6 +19,7 @@ class TripsController < ApplicationController
       flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
       redirect_to trip_path(@trip)
     else
+      flash[:notice] = "Something went wrong."
       redirect_to new_trip_path
     end
   end
