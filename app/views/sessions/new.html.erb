@@ -1,10 +1,12 @@
 <section id="main" class="wrapper">
 	<div class="container">
+		<ul class="errorMessages"></ul>
   	<header class="major special">
     	<p>Login</p>
 				<%= form_for :user, url: '/sessions' do |f| %>
-					Email: <%= f.text_field :email %>
-					Password: <%= f.password_field :password %>
+					Email: <%= f.text_field :email, :required => true %>
+					Password: <%= f.password_field :password, :required => true %>
+					Password Confirmation <%= f.password_field :password_confirmation, :required => true %>
 					<br>
 					<%= f.submit "Login" %>
 				<% end %>

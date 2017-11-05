@@ -12,6 +12,9 @@
 			<%= f.label :password %>
 			<%= f.password_field :password, placeholder: (user.errors.full_messages_for(:password).first || "A good one" ), :required => true %>
 
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm your Password", :required => true %>
+
       <%= f.label :role %>
       <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 
