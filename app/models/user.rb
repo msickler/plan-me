@@ -14,6 +14,12 @@ class User <  ActiveRecord::Base
       user.password = SecureRandom.hex
        user.name = auth_hash['info']['name']
        user.id = SecureRandom.random_number(60)
+       user.role = 'goer'
+       user.personality = 'Romantic'
+       user.reason = 'Honeymoon'
+       user.budget = '$1,000'
+       user.international = "Yes"
+       user.companion = '1-2'
     end
   end
 

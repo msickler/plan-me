@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'home/contact'
   get 'home/main'
   get 'home/sample'
-  get 'users/facebook'
   delete 'logout' => 'sessions#destroy'
   resources :trips
   resources :users
