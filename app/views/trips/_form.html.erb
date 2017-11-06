@@ -1,37 +1,29 @@
 <div class="row uniform 50%">
-    <%= form_for trip do |f| %>
-<!--
-    <% if trip.errors.any? %>
-      <div class="errors">
-        <h2>Errors prohibited this trip from being saved:</h2>
-        <ul>
-          <% trip.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %> -->
-  <div class="12u$">
-    <%= hidden_field_tag "user_id", @user_id %>
+  <%= form_for trip do |f| %>
+    <a href="#" class="close tooltip">
+      <span class="tooltiptext">Close [x]</span>
+      <ul class="errorMessages"></ul>
+    </a>
+    <div class="12u$">
+      <%= hidden_field_tag "user_id", @user_id %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
 
-    <%= f.label :categories, "Select & Create" %>
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-    <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
-      <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true%>
-    <% end %>
-  </div>
-  <br>
-  <div class="12u$">
-    <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true%>
-  </div>
-  <br>
-  <div class="12u$">
-    <ul class="actions">
-      <li><%=f.submit "Submit", class: "special" %></li>
-      <li><input type="reset" value="Reset"></li>
-    </ul>
-  </div>
+      <%= f.label :categories_attributes, "Select" %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+
+      <%= f.label :category, "Create" %>
+      <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
+        <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
+      <% end %>
+      <br>
+      <%= f.label :content %>
+      <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true%>
+      <br>
+      <ul class="actions">
+        <li><%=f.submit "Submit", class: "special" %></li>
+        <li><input type="reset" value="Reset"></li>
+      </ul>
+    </div>
   <% end %>
