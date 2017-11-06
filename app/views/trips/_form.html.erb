@@ -1,19 +1,18 @@
-<div class="row uniform 50%">
+<div class="12u$">
   <%= form_for trip do |f| %>
     <a href="#" class="close tooltip">
       <span class="tooltiptext">Close [x]</span>
       <ul class="errorMessages"></ul>
     </a>
-    <div class="12u$">
       <%= hidden_field_tag "user_id", @user_id %>
 
       <%= f.label :name %>
       <%= f.text_field :name, placeholder: "Name this trip", :required => true %>
 
-      <%= f.label :categories_attributes, "Select" %>
+      <%= f.label :categories_attributes, "Select Categories" %>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
 
-      <%= f.label :category, "Create" %>
+      <%= f.label :category, "Create Category" %>
       <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
         <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
       <% end %>
