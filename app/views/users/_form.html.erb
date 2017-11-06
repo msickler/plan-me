@@ -18,13 +18,13 @@
       <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation, placeholder: "Confirm your Password", :required => true %>
 
-      <%= f.label :role %>
+      <%= f.label :role, "Are you a Planner or  a Goer? You can also join our team of Admins" %>
       <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 
 			<%= f.label :personality, "What is your travel personality?" %>
 			<%= f.select :personality, [['Adventurous'], ['Romantic'], ['Intellectual']] %>
 
-			<%= f.label :reason, "What is the reason for this trip?" %>
+			<%= f.label :reason, "What is your 'motif'?" %>
 			<%= f.select :reason, [['Honeymoon'], ['Family Trip'], ['Cleansing Time'], ['For Fun'], ['For Tourism']] %>
 
 			<%= f.label :budget, "What is your budget?" %>
@@ -33,7 +33,7 @@
       <%= f.label :international, "Willing to travel international?" %>
 			<%= f.select :international, [['Yes'], ['No']] %>
 
-			<%= f.label :companion, "How many people are you bringing?" %>
+			<%= f.label :companion, "How many to travel with?" %>
 			<%= f.select :companion, [['1-2'], ['2-3'], ['3-4'], ['5+']] %>
 			<br><br>
 				<%= f.submit "submit" %>
