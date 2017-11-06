@@ -1,10 +1,10 @@
 <div class="row uniform 50%">
   <div class="6u 12u$(xsmall)">
 		<%= form_for user do |f| %>
-    <div class="errors">
-      <a href="#" class="close"> [x]</a>
-    <ul class="errorMessages"></ul>
-  </div>
+    <a href="#" class="close tooltip">
+      <span class="tooltiptext">Close</span>
+      <ul class="errorMessages"></ul>
+    </a>
 
 			<%= f.label :name %>
 			<%= f.text_field :name, placeholder: "Name", :required => true %>
