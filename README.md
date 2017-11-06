@@ -4,9 +4,9 @@
 
 ## Description
 
-Plan.Me is a web application for registered members only, for travelling enthusiasts. Whether you are one to travel around the world, or anywhere you can, or you are one who has an ability to plan and sketch out trips, and you would like to "work" as freelancing trip planning. Think of it like a wedding planner, but more comfy, because it's online, easier and less stressfull.
+Plan.Me is a web application for registered members only, for travelling enthusiasts. Whether you are one to travel around the world, or anywhere you can, or you are one who has an ability to plan and sketch out trips and you would like to freelance trip planning, this is the app. Think of it like a wedding planner, but more comfy, because it's online, easier and less stressfull.
 As a member you can sign up as a Goer and get in touch with Planners that are experts in your particular preferences, or the other way around, and be a Planner looking to pair-up with the right Goer. If you're good at planning honeymoons, for example, you'll see who is looking for that exactly.
-In one sentence, Plan.Me is a website to bring the community of travel-lovers together in an easy, clean way.
+In one sentence, Plan.Me is a website to bring the community of travel-lovers together in an easy, fun way.
 
 ## Usage
 
