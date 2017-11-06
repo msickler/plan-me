@@ -12,6 +12,8 @@ class User <  ActiveRecord::Base
   def self.find_or_create_by_omniauth(auth_hash)
     where(email: auth_hash['info']['email']).first_or_create do |user|
       user.password = SecureRandom.hex
+       user.name = auth_hash['info']['name']
+       user.id = SecureRandom.random_number(60)
     end
   end
 

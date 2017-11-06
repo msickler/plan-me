@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :must_log_in, only: [:index, :show]
+  #before_action :must_log_in, only: [:index, :show]
+  #skip_before_action :must_log_in, only: [:facebook]
   before_action :set_user, only: [:edit, :update]
   before_action :authorize_user, only: [:edit, :update]
 
@@ -28,6 +29,10 @@ class UsersController < ApplicationController
       flash[:notice] = "Something went wrong."
       redirect_to new_user_path
     end
+  end
+
+  def facebook
+    @user = User.new
   end
 
   def show
