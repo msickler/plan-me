@@ -11,10 +11,10 @@
 				</ul>
 					<%= link_to("dashboard", users_path, class: 'button alt') %>
 					<% if current_user.id == @user.id && current_user.role == 'planner' || current_user.is_admin? %>
-						<%= link_to("Trip.it", new_user_trip_path(@user), class: 'button alt') %>
+						<%= link_to("Trip.it", new_user_trip_path(current_user), class: 'button alt') %>
 					<% end %>
 					<br><br>
-						<% if current_user.id == @user.id || current_user.is_admin? %>
+						<% if current_user.id == @user.id %>
 		 					<%= link_to("Edit Profile", edit_user_path(@user)) %>
 						<% end %>
 			</div>

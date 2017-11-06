@@ -17,8 +17,11 @@
         <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
       <% end %>
       <br>
-      <%= f.label :content %>
-      <%= f.text_area :content, placeholder: "Narrate the trip", rows: "10", :required => true%>
+      <div class="tooltip">
+        <%= f.label :content, "Tell us about the Trip" %>
+        <span class="tooltiptext">At least 600 characters</span>
+      </div>
+      <%= f.text_area :content, placeholder: "Anything you want", rows: "10", :required => true%>
       <br>
       <ul class="actions">
         <li><%=f.submit "Submit", class: "special" %></li>
