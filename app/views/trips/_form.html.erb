@@ -12,14 +12,16 @@
       <%= f.label :categories_attributes, "Select Categories" %>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
 
-      <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
+        <%= f.fields_for :categories, trip.categories.build do |categories_fields| %>
         <%= f.label :category, "Create Category" %>
         <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
+
+        <%= fields_for @trip_category do |tc| %>
+             <%= tc.label :note %>
+             <%= tc.text_field :note %>
+          <% end %>
+
       <% end %>
-
-
-      <%= f.label :note, "Leave a Note" %>
-      <%= f.text_field :note %>
       <br>
       <div class="tooltip">
         <%= f.label :content, "Tell us about the Trip" %>
