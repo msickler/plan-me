@@ -20,7 +20,7 @@ class TripsController < ApplicationController
       redirect_to trip_path(@trip)
     else
       flash[:notice] = "Something went wrong."
-      redirect_to new_trip_path
+      render :new
     end
   end
 
@@ -54,7 +54,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name], trip_categories: [:note])
   end
 
   def set_trip
