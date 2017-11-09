@@ -14,8 +14,8 @@ class Trip <  ActiveRecord::Base
       self.categories << category
     end
   end
-  
-   def note(trip_id, category_id)
+
+  def note(trip_id, category_id)
     trip = Trip.find(trip_id)
     category = Category.find(category_id)
     category.trip_categories.find_by(trip_id: trip_id).note
