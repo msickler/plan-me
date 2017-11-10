@@ -4,5 +4,10 @@ class Category <  ActiveRecord::Base
 
   validates :name, presence: true
 
+  def note(trip_id, category_id)
+      category = Category.find(category_id)
+      trip = Trip.find(trip_id)
+      trip.trip_categories.find_by(category_id: category_id).note
+  end
 
 end

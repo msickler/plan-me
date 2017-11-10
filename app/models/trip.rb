@@ -2,7 +2,6 @@ class Trip <  ActiveRecord::Base
   belongs_to :user
   has_many :trip_categories
   has_many :categories, through: :trip_categories
-  accepts_nested_attributes_for :trip_categories
 
   validates :name, :content, presence: true
   validates :name, uniqueness: true, length: { minimum: 5 }
@@ -15,12 +14,10 @@ class Trip <  ActiveRecord::Base
     end
   end
 
-  def note(trip_id, category_id)
-    trip = Trip.find(trip_id)
-    category = Category.find(category_id)
-    category.trip_categories.find_by(trip_id: trip_id).note
-  end
-
+  def update_attributes(category_ids, trip_category_note)
+        @trip_category = TripCategory.new(trip_id: self.id, category_id: self.category_ids[0], note: trip_category_note)
+        @trip_category.save
+    end
 
 
 end

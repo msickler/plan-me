@@ -16,6 +16,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
+    @trip_category = TripCategory.new(note: params[:note])
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
       redirect_to trip_path(@trip)
@@ -26,7 +27,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip_category = TripCategory.new(params[:note])
+    @trip_category = TripCategory.new(note: params[:note])
   end
 
   def edit
@@ -34,7 +35,7 @@ class TripsController < ApplicationController
 
   def update
     if @trip.trip_categories.present?
-      @note = @trip.trip_categories[1][:note]
+      @trip.update_attributes(@trip.category_ids[0], params[:trip_category][:note])
       binding.pry
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was updated!"
