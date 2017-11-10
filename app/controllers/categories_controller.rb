@@ -4,10 +4,13 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
     @categories = Category.all
+    @trip_category = TripCategory.new
+
   end
 
   def create
     @category = Category.new(category_params)
+    @trip_category = TripCategory.new(:note => params[:note])
     if @category.save
       redirect_to categories_path
     else
@@ -25,7 +28,6 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    @trip_category.note = params[:trip_category][:note]
     if @category.update(category_params)
       redirect_to categories_path
     else
@@ -35,7 +37,7 @@ class CategoriesController < ApplicationController
 
 private
 def category_params
-  params.require(:category).permit(:id, :name, :note)
+  params.require(:category).permit(:id, :name, trip_categories_attributes: [:note], trip_category_attributes: [:note])
 end
 
 end

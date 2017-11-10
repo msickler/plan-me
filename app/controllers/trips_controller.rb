@@ -10,16 +10,18 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     @user_id = current_user.id
-
     @trip_category = TripCategory.new(:note => params[:note])
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-    @trip_category = TripCategory.new(trip_id: @trip.id, category_id: @trip.category_ids.find(:id), note: params[:note])
-    @trip_category.save
+    @trip_category = TripCategory.create(:note => 'ji')
+    @trip.trip_categories#[2][:note]
+    #@trip_category = TripCategory.new(trip_id: @trip.id, category_id: @trip.category_ids.find(:id), note: params[:note])
+    #@trip_category.save
     if @trip.save
+      binding.pry
       flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
       redirect_to trip_path(@trip)
     else
@@ -61,7 +63,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name], trip_categories: [:note])
+    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name], trip_categories_attributes: [:note], trip_category_attributes: [:note])
   end
 
   def set_trip

@@ -9,11 +9,18 @@ class Trip <  ActiveRecord::Base
   #validates :content, length: { minimum: 600 }
 
   def categories_attributes=(category_attributes)
-  category_attributes.values.each do |category_attribute|
+    category_attributes.values.each do |category_attribute|
     category = Category.find_or_create_by(category_attribute)
     self.categories << category
   end
 end
+
+  def trip_categories_attributes=(trip_category_attributes)
+    trip_category_attributes.values.each do |trip_category_attribute|
+      trip_category = TripCategory.build(trip_category_attribute)
+      self.trip_categories << trip_category
+    end
+  end
 
 def note(category_id, trip_id)
   trip = Trip.find(trip_id)
