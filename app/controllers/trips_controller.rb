@@ -35,7 +35,7 @@ class TripsController < ApplicationController
   def update
     if @trip.trip_categories.present?
       @note = @trip.trip_categories[1][:note]
-
+      binding.pry
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was updated!"
       redirect_to trip_path(@trip)
