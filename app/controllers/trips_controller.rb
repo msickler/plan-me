@@ -17,7 +17,8 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-    @trip_category = TripCategory.new(:note => params[:note])
+    @trip_category = TripCategory.new(trip_id: @trip.id, category_id: @trip.category_ids.find(:id), note: params[:note])
+    @trip_category.save
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
       redirect_to trip_path(@trip)
