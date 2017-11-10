@@ -16,12 +16,6 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-
-    @trip_category = @trip.trip_categories
-    binding.pry
-    @trip_category.note = params[:trip_category][:note]
-    @trip_category.save
-
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
       redirect_to trip_path(@trip)
@@ -32,13 +26,16 @@ class TripsController < ApplicationController
   end
 
   def show
+    @trip_category = TripCategory.new(params[:note])
   end
 
   def edit
   end
 
   def update
-    @trip.update(trip_params)
+    if @trip.trip_categories.present?
+      @note = @trip.trip_categories[1][:note]
+
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was updated!"
       redirect_to trip_path(@trip)
@@ -46,6 +43,7 @@ class TripsController < ApplicationController
       flash[:notice] = "Access Denied."
       redirect_to trips_path
     end
+  end
   end
 
    def destroy
@@ -61,7 +59,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name])
+    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name], trip_category: [:note])
   end
 
   def set_trip

@@ -3,7 +3,10 @@
 		<header class="major special">
 			<h2>Trip.<%= @trip.name %></h2>
       <p>Filed under: <% @trip.categories.each do |category| %>
-          <%= link_to category.name,  trip_category_path(@trip, category) if @trip.category_ids %> <%= @trip.note(@trip.id, category.id)%>|
+          <%= link_to category.name,  trip_category_path(@trip, category) if @trip.category_ids %> <%= @trip.note(@trip.id, category.id)%>
+          <%= @trip.note(@trip.id, category.id)%>
+          <%= render partial: 'trip_categories/add_note' %>
+          |
         <% end %></p>
 			<p>Creator: <%= link_to @trip.user.name, user_path(@trip.user) %></p>
     </header>
