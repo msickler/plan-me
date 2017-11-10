@@ -1,6 +1,6 @@
 <%= form_for @trip do |f| %>
 
-    <%= hidden_field_tag "category_id", @category_id %>
+    <%= hidden_field_tag "category_id", @trip.category_ids[0] %>
       <%= hidden_field_tag "trip_id", @trip.id %>
       <%= hidden_field_tag "trip", @trip.id %>
        <%= fields_for @trip_category do |tc| %>

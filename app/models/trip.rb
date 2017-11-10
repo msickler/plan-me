@@ -5,7 +5,7 @@ class Trip <  ActiveRecord::Base
 
   validates :name, :content, presence: true
   validates :name, uniqueness: true, length: { minimum: 5 }
-  validates :content, length: { minimum: 600 }
+  #validates :content, length: { minimum: 600 }
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|
