@@ -16,8 +16,9 @@
         <%= f.label :category, "Create Category" %>
         <%= categories_fields.text_field :name, placeholder: "categorize it", :required => true %>
 
-        <%= fields_for :trip_category, trip.trip_categories.build do |tc| %>
+        <%= fields_for :trip_categories, trip.trip_categories.build do |tc| %>
           <%#= hidden_field_tag "trip_id", trip.id %>
+          <%= f.hidden_field :trip_id, :value => trip.id %>
              <%= tc.label :note %>
              <%= tc.text_field :note %>
           <% end %>

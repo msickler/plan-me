@@ -10,13 +10,13 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     @user_id = current_user.id
-    @trip_category = TripCategory.new
+    #@trip_category = TripCategory.new
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-    @trip.trip_categories = TripCategory.new(trip_category_params)
+    #@trip.trip_categories = TripCategory.new(trip_category_params)
     #@trip_category = TripCategory.new(trip_id: @trip.id, category_id: @trip.category_ids.find(:id), note: params[:note])
     #@trip_category.save
     if @trip.save

@@ -15,12 +15,18 @@ class Trip <  ActiveRecord::Base
   end
 end
 
-  def trip_categories_attributes=(trip_category_attributes)
-    trip_category_attributes.values.each do |trip_category_attribute|
-      trip_category = TripCategory.build(trip_category_attribute)
-      self.trip_categories << trip_category
+def trip_categories_attributes=(attributes)
+    @trip_categories ||= []
+    attributes.each do |i, trip_category_params|
+      @trip_categories.push(TripCategory.new(trip_category_params))
     end
   end
+
+#  def trip_categories_attributes=(trip_category_attributes)
+#    trip_category_attributes.values.each do |trip_category_attribute|
+#      self.trip_categories.build(trip_category_attribute)
+#      end
+#  end
 
 def note(category_id, trip_id)
   trip = Trip.find(trip_id)
