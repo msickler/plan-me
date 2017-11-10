@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     @roadtrippers = User.roadtrippers
   end
 
+  def types
+    @romantics = User.romantics
+    @adventurous = User.adventurous
+    @intellectuals = User.intellectuals
+  end
+
   def new
     @user = User.new
   end

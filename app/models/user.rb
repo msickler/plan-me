@@ -27,6 +27,14 @@ class User <  ActiveRecord::Base
     where(personality: 'Romantic')
   end
 
+  def self.adventurous
+    where(personality: 'Adventurous')
+  end
+
+  def self.intellectuals
+    where(personality: 'Intellectual')
+  end
+
   def self.honeymooners
     where(reason: 'Honeymoon')
   end

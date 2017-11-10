@@ -2,7 +2,8 @@ class Trip <  ActiveRecord::Base
   belongs_to :user
   has_many :trip_categories
   has_many :categories, through: :trip_categories
-   accepts_nested_attributes_for :trip_categories
+  accepts_nested_attributes_for :trip_categories
+  attr_accessor :note
 
   validates :name, :content, presence: true
   validates :name, uniqueness: true, length: { minimum: 5 }
