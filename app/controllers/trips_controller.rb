@@ -10,14 +10,13 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     @user_id = current_user.id
-    @trip_category = TripCategory.new(:note => params[:note])
+    @trip_category = TripCategory.new
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-    @trip_category = TripCategory.create(:note => 'ji')
-    @trip.trip_categories#[2][:note]
+    @trip.trip_categories = TripCategory.new(trip_category_params)
     #@trip_category = TripCategory.new(trip_id: @trip.id, category_id: @trip.category_ids.find(:id), note: params[:note])
     #@trip_category.save
     if @trip.save
@@ -72,6 +71,10 @@ class TripsController < ApplicationController
 
   def require_planner
      return head(:forbidden) unless current_user.role == 'planner' || current_user.role == 'admin'
+   end
+
+   def trip_category_params
+     params.require(:trip_category).permit(:id, :trip_id, :category_id, :note)
    end
 
 end
