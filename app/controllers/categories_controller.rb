@@ -10,7 +10,6 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @trip_category = TripCategory.new(:note => params[:note])
     if @category.save
       redirect_to categories_path
     else
@@ -37,7 +36,7 @@ class CategoriesController < ApplicationController
 
 private
 def category_params
-  params.require(:category).permit(:id, :name, trip_categories_attributes: [:note], trip_category_attributes: [:note])
+  params.require(:category).permit(:id, :name)
 end
 
 end

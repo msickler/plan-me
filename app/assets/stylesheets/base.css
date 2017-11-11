@@ -20,7 +20,7 @@
 
 	.field_with_errors {
 		z-index: 10002;
-		background-color: red;
+		background-color: #fafafa;
 	}
 	.close {
 		text-decoration: none;

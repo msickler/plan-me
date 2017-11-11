@@ -3,9 +3,7 @@
 		<header class="major special">
 			<h2>Trip.<%= @trip.name %></h2>
       <p>Filed under: <% @trip.categories.each do |category| %>
-          <%= link_to category.name,  trip_category_path(@trip, category) if @trip.category_ids %>  Note: <%= category.note(@trip.id, category.id)%>
-          <%= category.note(@trip.id, category.id)%>
-          |
+          <%= link_to category.name,  trip_category_path(@trip, category) if @trip.category_ids %> |
         <% end %></p>
 			<p>Creator: <%= link_to @trip.user.name, user_path(@trip.user) %></p>
     </header>

@@ -10,15 +10,11 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     @user_id = current_user.id
-    @trip_category = TripCategory.new
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-    #@trip.trip_categories = TripCategory.new(trip_category_params)
-    @trip_category = TripCategory.new(trip_id: @trip.id, category_id: @trip.category_ids.find(:id), note: params[:note])
-    @trip_category.save
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was successfully created!"
       redirect_to trip_path(@trip)
@@ -35,8 +31,6 @@ class TripsController < ApplicationController
   end
 
   def update
-    if @trip.trip_categories.present?
-      @trip.update_attributes(@trip.category_ids[0], params[:trip_category][:note])
     if @trip.save
       flash[:notice] = "#{@trip.name.capitalize} was updated!"
       redirect_to trip_path(@trip)
@@ -44,7 +38,6 @@ class TripsController < ApplicationController
       flash[:notice] = "Access Denied."
       redirect_to trips_path
     end
-  end
   end
 
    def destroy
@@ -60,7 +53,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name], trip_categories_attributes: [:note], trip_category_attributes: [:note])
+    params.require(:trip).permit(:id, :name, :content, :user_id, category_ids:[], categories_attributes: [:name])
   end
 
   def set_trip
@@ -69,10 +62,6 @@ class TripsController < ApplicationController
 
   def require_planner
      return head(:forbidden) unless current_user.role == 'planner' || current_user.role == 'admin'
-   end
-
-   def trip_category_params
-     params.require(:trip_category).permit(:id, :trip_id, :category_id, :note)
    end
 
 end
